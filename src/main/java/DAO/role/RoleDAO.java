@@ -36,7 +36,7 @@ public class RoleDAO implements IRoleDAO {
     }
 
     @Override
-    public Role     selectRole(int id) {
+    public Role selectRole(int id) {
         Role role = null;
         try (Connection connection = ConnectionDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ROLE_BY_ID)) {
