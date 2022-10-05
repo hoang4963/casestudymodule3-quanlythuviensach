@@ -15,6 +15,8 @@ public class RoleDAO implements IRoleDAO {
     private static final String DELETE_ROLES_SQL = "delete from role where id = ?;";
     private static final String UPDATE_ROLES_SQL = "update role set roleId = ?, name = ? where id = ?;";
 
+
+    //Trung
     public RoleDAO() {
     }
 
