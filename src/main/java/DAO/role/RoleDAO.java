@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoleDAO implements IRoleDAO {
-    private final String jdbcURL ="jdbc:mysql://127.0.0.1:3306/quanlythuviensach?useSSL=false";
-    private final String jdbcRolename = "root";
-    private final String jdbcPassword = "Nhth1319.";
 
     private static final String INSERT_ROLE_SQL = "INSERT INTO role (roleId,name) VALUES (?,?);";
     private static final String SELECT_ROLE_BY_ID = "select * from role where id =?";
