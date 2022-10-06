@@ -1,4 +1,4 @@
-package com.example.user;
+package servlet.user;
 
 import connection.ConnectionDB;
 
@@ -20,14 +20,18 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        Lấy dữ liệu từ người dùng nhập
         String name = request.getParameter("firstname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+//        Dùng để chuyển trang
         RequestDispatcher dispatcher = null;
-        Connection connection =null;
+//        Kết nối với database
+        Connection con =null;
         try {
-            connection = ConnectionDB.getConnection();
-            PreparedStatement pst = connection.prepareStatement("insert into `quanlythuviensach`.`accounts`(name,password,email) values (?,?,?)");
+            con = ConnectionDB.getConnection();
+//            Add từng cái vào database
+            PreparedStatement pst = con.prepareStatement("insert into `quanlythuviensach`.`accounts`(name,password,email) values (?,?,?)");
             pst.setString(1, name);
             pst.setString(2, password);
             pst.setString(3, email);
@@ -44,7 +48,7 @@ public class RegisterServlet extends HttpServlet {
             e.printStackTrace();
         } finally {
             try {
-                connection.close();
+                con.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
