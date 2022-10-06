@@ -55,9 +55,9 @@
         </ul>
         <div class="aitssendbuttonw3ls">
             <input type="submit" value="LOGIN">
-            <p> To register new account <span>→</span> <a class="w3_play_icon1" href="/user/register.jsp"> Click
-                Here</a>
-            </p>
+<%--            <p> To register new account <span>→</span> <a class="w3_play_icon1" href="/customer/createCustomer.jsp"> Click--%>
+<%--                Here</a>--%>
+<%--            </p>--%>
             <div class="clear"></div>
         </div>
     </form>

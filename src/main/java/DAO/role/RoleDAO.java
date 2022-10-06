@@ -9,6 +9,7 @@ import java.util.List;
 
 public class RoleDAO implements IRoleDAO {
 
+
     private static final String INSERT_ROLE_SQL = "INSERT INTO role (roleId,name) VALUES (?,?);";
     private static final String SELECT_ROLE_BY_ID = "select * from role where id =?";
     private static final String SELECT_ALL_ROLES = "select * from role";
