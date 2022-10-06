@@ -27,7 +27,7 @@ public class CustomerDAO implements ICustomerDAO{
             preparedStatement.setString(2, customer.getCustomerName());
             preparedStatement.setDate(3,customer.getCustomerBirthday());
             preparedStatement.setString(4,customer.getCustomerEmail());
-            preparedStatement.setInt(5,customer.getCustomerPhone());
+            preparedStatement.setString(5,customer.getCustomerPhone());
             preparedStatement.setString(6,customer.getCustomerAvatar());
             preparedStatement.setString(7,customer.getCustomerRoleId());
             System.out.println(preparedStatement);
@@ -51,7 +51,7 @@ public class CustomerDAO implements ICustomerDAO{
                 String customerName = rs.getString("name");
                 Date birthday = rs.getDate("birthday");
                 String email = rs.getString("email");
-                int phone = rs.getInt("phone");
+                String phone = rs.getString("phone");
                 String avatar = rs.getString("avatar");
                 String roleid = rs.getString("role_id");
                 String password = rs.getString("password");
@@ -76,7 +76,7 @@ public class CustomerDAO implements ICustomerDAO{
                 String name = rs.getString("name");
                 Date birthday = rs.getDate("birthday");
                 String email = rs.getString("email");
-                int phone = rs.getInt("phone");
+                String phone = rs.getString("phone");
                 String avatar = rs.getString("avatar");
                 String roleid = rs.getString("role_id");
                 String password = rs.getString("password");
@@ -109,7 +109,7 @@ public class CustomerDAO implements ICustomerDAO{
             preparedStatement.setString(2,customer.getCustomerName());
             preparedStatement.setDate(3,customer.getCustomerBirthday());
             preparedStatement.setString(4,customer.getCustomerEmail());
-            preparedStatement.setInt(5,customer.getCustomerPhone());
+            preparedStatement.setString(5,customer.getCustomerPhone());
             preparedStatement.setString(6,customer.getCustomerAvatar());
             preparedStatement.setString(7,customer.getCustomerRoleId());
             preparedStatement.setInt(8,customer.getId());
