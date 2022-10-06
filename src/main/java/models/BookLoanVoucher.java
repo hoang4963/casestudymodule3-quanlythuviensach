@@ -2,27 +2,20 @@ package models;
 
 public class BookLoanVoucher {
     protected int bookLoanVoucherId;
-    protected String bookLoanVoucherName;
-    protected int borrowerID;
+    protected String bookLoanVoucherStatus;
+    protected String borrowerID;
     protected int bookAmount;
-    protected int bookLoanVoucherNote;
+    protected String bookLoanVoucherNote;
 
-    public BookLoanVoucher() {
+    public BookLoanVoucher(String bookLoanVoucherStatus, String borrowerID, int bookAmount, String bookLoanVoucherNote) {
     }
 
-    public BookLoanVoucher(int bookLoanVoucherId, String bookLoanVoucherName, int borrowerID, int bookAmount, int bookLoanVoucherNote) {
+    public BookLoanVoucher(int bookLoanVoucherId, String bookLoanVoucherStatus, String borrowerID, int bookAmount, String bookLoanVoucherNote) {
         this.bookLoanVoucherId = bookLoanVoucherId;
-        this.bookLoanVoucherName = bookLoanVoucherName;
+        this.bookLoanVoucherStatus = bookLoanVoucherStatus;
         this.borrowerID = borrowerID;
         this.bookAmount = bookAmount;
         this.bookLoanVoucherNote = bookLoanVoucherNote;
-    }
-
-    public BookLoanVoucher(int bookLoanVoucherId, String bookLoanVoucherName, int borrowerID, int bookAmount) {
-        this.bookLoanVoucherId = bookLoanVoucherId;
-        this.bookLoanVoucherName = bookLoanVoucherName;
-        this.borrowerID = borrowerID;
-        this.bookAmount = bookAmount;
     }
 
     public int getBookLoanVoucherId() {
@@ -33,19 +26,19 @@ public class BookLoanVoucher {
         this.bookLoanVoucherId = bookLoanVoucherId;
     }
 
-    public String getBookLoanVoucherName() {
-        return bookLoanVoucherName;
+    public String getBookLoanVoucherStatus() {
+        return bookLoanVoucherStatus;
     }
 
-    public void setBookLoanVoucherName(String bookLoanVoucherName) {
-        this.bookLoanVoucherName = bookLoanVoucherName;
+    public void setBookLoanVoucherStatus(String bookLoanVoucherStatus) {
+        this.bookLoanVoucherStatus = bookLoanVoucherStatus;
     }
 
-    public int getBorrowerID() {
+    public String getBorrowerID() {
         return borrowerID;
     }
 
-    public void setBorrowerID(int borrowerID) {
+    public void setBorrowerID(String borrowerID) {
         this.borrowerID = borrowerID;
     }
 
@@ -57,8 +50,13 @@ public class BookLoanVoucher {
         this.bookAmount = bookAmount;
     }
 
-    public BookLoanVoucher(int bookLoanVoucherNote) {
+    public String getBookLoanVoucherNote() {
+        return bookLoanVoucherNote;
+    }
+
+    public void setBookLoanVoucherNote(String bookLoanVoucherNote) {
         this.bookLoanVoucherNote = bookLoanVoucherNote;
     }
 }
+
 

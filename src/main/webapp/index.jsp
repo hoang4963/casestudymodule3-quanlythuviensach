@@ -8,6 +8,6 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="BorrowerBookServlet">Hello Servlet</a>
+<a href="BookLoanVoucherServlet">Hello Servlet</a>
 </body>
 </html>
