@@ -115,7 +115,7 @@ public class BookServlet extends HttpServlet {
 
         List<Book> listBook = bookDAO.selectAllBooks();
         request.setAttribute("listBook", listBook);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("book/list.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -133,7 +133,7 @@ public class BookServlet extends HttpServlet {
         Book book = new Book(id,bookId, name, description, image,status,categoryId,origin,extraDate);
         bookDAO.updateBook(book);
         request.setAttribute("book",book);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("book/bookEdit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("book/edit.jsp");
         request.setAttribute("message","Product information was updated");
         dispatcher.forward(request, response);
     }
@@ -149,7 +149,7 @@ public class BookServlet extends HttpServlet {
         Date extraDate = Date.valueOf(request.getParameter("extraDate"));
         Book newBook = new Book(bookId,name,description,image,status,categoryId,origin,extraDate);
         bookDAO.insertBook(newBook);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("book/bookCreate.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("book/create.jsp");
         request.setAttribute("message","New product was created");
         dispatcher.forward(request, response);
     }

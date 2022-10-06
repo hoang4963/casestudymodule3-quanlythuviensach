@@ -14,6 +14,10 @@
 <br>
 <a href="books">book test</a>
 <br>
+<<<<<<< HEAD
 <a href="customers">Customers</a>
+=======
+<a href="categories"> category test</a>
+>>>>>>> trung
 </body>
 </html>

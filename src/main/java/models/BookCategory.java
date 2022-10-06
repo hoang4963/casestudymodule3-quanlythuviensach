@@ -8,6 +8,10 @@ public class BookCategory {
 
     public BookCategory() {
     }
+    public BookCategory(String bookCategoryId, String bookCategoryName) {
+        this.bookCategoryId = bookCategoryId;
+        this.bookCategoryName = bookCategoryName;
+    }
 
     public BookCategory(int id,String bookCategoryId, String bookCategoryName) {
         this.id = id;

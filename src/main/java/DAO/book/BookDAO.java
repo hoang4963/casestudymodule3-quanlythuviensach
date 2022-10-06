@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookDAO implements IBookDAO {
-    private static final String INSERT_BOOK_SQL = "insert into book(bookId, name, descripttion, image, status, category_id, origin,extraDate) values (?,?,?,?,?,?,?,?)";
+    private static final String INSERT_BOOK_SQL = "insert into book(bookId, name, description, image, status, category_id, origin,extraDate) values (?,?,?,?,?,?,?,?)";
     private static final String SELECT_BOOK_BY_ID = "select * from book where id = ?";
     private static final String SELECT_ALL_BOOKS = "select * from book";
     private static final String DELETE_BOOK_SQL ="delete from book where id = ?";
