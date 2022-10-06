@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDAO implements ICustomerDAO{
-    private static final String INSERT_CUSTOMER_SQL = "INSERT INTO customer (customerId,name,birthday,email,phone,avatar,password,role_id) VALUES (?,?,?,?,?,?,?);";
+    private static final String INSERT_CUSTOMER_SQL = "INSERT INTO customer (customerId,name,birthday,email,phone,avatar,password,role_id) VALUES (?,?,?,?,?,?,?,?);";
     private static final String SELECT_CUSTOMER_BY_ID = "select * from customer where id =?";
     private static final String SELECT_ALL_CUSTOMERS = "select * from customer";
     private static final String DELETE_CUSTOMERS_SQL = "delete from customer where id = ?;";
