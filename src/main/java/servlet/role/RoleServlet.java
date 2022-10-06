@@ -1,8 +1,6 @@
-<<<<<<< HEAD:src/main/java/servlet/roler/RoleServlet.java
-package servlet.roler;
-=======
+
 package servlet.role;
->>>>>>> hieu:src/main/java/servlet/role/RoleServlet.java
+
 
 import DAO.role.RoleDAO;
 import models.Role;
