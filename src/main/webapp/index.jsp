@@ -17,11 +17,16 @@
 <br>
 <<<<<<< HEAD
 <a href="customers">Customers</a>
+<<<<<<< HEAD
 =======
 <a href="categories"> category test</a>
 >>>>>>> trung
 =======
 <a href="BorrowerBookServlet">Hello Servlet</a>
 >>>>>>> quan
+=======
+<br>
+<a href="borrowers">Borrowers</a>
+>>>>>>> hoang
 </body>
 </html>
