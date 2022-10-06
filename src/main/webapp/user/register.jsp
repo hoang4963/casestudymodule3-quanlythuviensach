@@ -26,7 +26,8 @@
     <!-- /css -->
 </head>
 <body>
-<input type="hidden" id="status" value="<%= request.getAttribute("status")%>" placeholder="<%=request.getAttribute("status")%>">
+<input type="hidden" id="status" value="<%= request.getAttribute("status")%>"
+       placeholder="<%=request.getAttribute("status")%>">
 <h1 class="w3ls">Đăng Ký</h1>
 <div class="content-w3ls">
     <div class="content-agile1">
@@ -68,7 +69,7 @@
                 //empty string means no validation error
             }
         </script>
-        <div >
+        <div>
             <a href="/user/login.jsp" class="signup-image-link"> Quay lại trang đăng nhập</a>
         </div>
 
