@@ -69,7 +69,7 @@ public class CustomerServlet extends HttpServlet {
     private void listCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> listCustomer = customerDAO.selectAllCustomers();
         request.setAttribute("listCustomer", listCustomer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/listCustomer.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
@@ -115,7 +115,7 @@ public class CustomerServlet extends HttpServlet {
             newCustomer = new Customer(customerid,name,birthday,email,phone,avatar,roleid,password);
         }
         customerDAO.insertCustomer(newCustomer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/createCustomer.jsp");
         dispatcher.forward(request, response);
     }
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response)
