@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
             pst.setString(1, email);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
-
+//jfqw
 //            Filter servlet
             if (rs.next()) {
                 System.out.println(rs.getString("role_id"));
