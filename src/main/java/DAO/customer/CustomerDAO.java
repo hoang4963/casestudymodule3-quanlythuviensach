@@ -54,7 +54,8 @@ public class CustomerDAO implements ICustomerDAO{
                 int phone = rs.getInt("phone");
                 String avatar = rs.getString("avatar");
                 String roleid = rs.getString("role_id");
-                customer = new Customer(id,customerId,customerName,birthday,email,phone,avatar,roleid);
+                String password = rs.getString("password");
+                customer = new Customer(id,customerId,customerName,birthday,email,phone,avatar,roleid,password);
             }
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -78,7 +79,8 @@ public class CustomerDAO implements ICustomerDAO{
                 int phone = rs.getInt("phone");
                 String avatar = rs.getString("avatar");
                 String roleid = rs.getString("role_id");
-                customers.add(new Customer(id,customerId,name,birthday,email,phone,avatar,roleid));
+                String password = rs.getString("password");
+                customers.add(new Customer(id,customerId,name,birthday,email,phone,avatar,roleid,password));
             }
         }catch (SQLException e){
             System.out.println(e.getMessage());

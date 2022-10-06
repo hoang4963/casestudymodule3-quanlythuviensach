@@ -8,14 +8,16 @@ public class Customer {
     protected String customerName;
     protected Date customerBirthday;
     protected String customerEmail;
-    protected int customerPhone;
+    protected String customerPhone;
     protected String customerAvatar;
     protected String customerRoleId;
+
+    protected String customerPassword;
 
     public Customer() {
     }
 
-    public Customer(String customerId, String customerName, Date customerbirthday, String customerEmail, int customerPhone, String customerAvatar, String customerRoleId) {
+    public Customer(String customerId, String customerName, Date customerbirthday, String customerEmail, String customerPhone, String customerAvatar, String customerRoleId, String customerPassword) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerBirthday = customerbirthday;
@@ -23,9 +25,10 @@ public class Customer {
         this.customerPhone = customerPhone;
         this.customerAvatar = customerAvatar;
         this.customerRoleId = customerRoleId;
+        this.customerPassword = customerPassword;
     }
 
-    public Customer(int id, String customerId, String customerName, Date customerBirthday, String customerEmail, int customerPhone, String customerAvatar, String customerRoleId) {
+    public Customer(int id, String customerId, String customerName, Date customerBirthday, String customerEmail, String customerPhone, String customerAvatar, String customerRoleId, String customerPassword) {
         this.id = id;
         this.customerId = customerId;
         this.customerName = customerName;
@@ -34,15 +37,17 @@ public class Customer {
         this.customerPhone = customerPhone;
         this.customerAvatar = customerAvatar;
         this.customerRoleId = customerRoleId;
+        this.customerPassword = customerPassword;
     }
 
-    public Customer(String customerId, String customerName, String customerEmail, int customerPhone, String customerAvatar, String customerRoleId) {
+    public Customer(String customerId, String customerName, String customerEmail, String customerPhone, String customerAvatar, String customerRoleId, String customerPassword) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.customerPhone = customerPhone;
         this.customerAvatar = customerAvatar;
         this.customerRoleId = customerRoleId;
+        this.customerPassword = customerPassword;
     }
 
     public int getId() {
@@ -85,11 +90,11 @@ public class Customer {
         this.customerEmail = customerEmail;
     }
 
-    public int getCustomerPhone() {
+    public String getCustomerPhone() {
         return customerPhone;
     }
 
-    public void setCustomerPhone(int customerPhone) {
+    public void setCustomerPhone(String customerPhone) {
         this.customerPhone = customerPhone;
     }
 
@@ -107,5 +112,17 @@ public class Customer {
 
     public void setCustomerRoleId(String customerRoleId) {
         this.customerRoleId = customerRoleId;
+    }
+
+    public void setCustomerBirthday(Date customerBirthday) {
+        this.customerBirthday = customerBirthday;
+    }
+
+    public String getCustomerPassword() {
+        return customerPassword;
+    }
+
+    public void setCustomerPassword(String customerPassword) {
+        this.customerPassword = customerPassword;
     }
 }
