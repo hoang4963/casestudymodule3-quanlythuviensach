@@ -15,15 +15,16 @@ CREATE TABLE `quanlythuviensach`.`role`
 CREATE TABLE `quanlythuviensach`.`accounts`
 (
     `id`        INT          NOT NULL AUTO_INCREMENT,
-    `accountId` VARCHAR(15)  not NULL,
+    `accountId` VARCHAR(15) NULL,
     `name`      VARCHAR(45)  not NULL,
     `password`  VARCHAR(45)  not NULL,
-    `email`     varchar(255) not null,
-    `role_id`   VARCHAR(15)  not null,
+    `email`     varchar(255) not null unique,
+    `role_id`   VARCHAR(15) null,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     foreign key (`role_id`) references `quanlythuviensach`.`role` (`roleId`)
 );
+
 
 CREATE TABLE `quanlythuviensach`.`bookcategory`
 (
