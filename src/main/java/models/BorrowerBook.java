@@ -4,15 +4,22 @@ import java.sql.Date;
 
 public class BorrowerBook {
     protected int borrowerBookId;
-    protected int loanVoucherId;
-    protected int bookId;
+    protected String loanVoucherId;
+    protected String bookId;
     protected Date loanDate;
     protected Date returnDate;
 
     public BorrowerBook() {
     }
 
-    public BorrowerBook(int borrowerBookId, int loanVoucherId, int bookId, Date loanDate, Date returnDate) {
+    public BorrowerBook(String loanVoucherId, String bookId, Date loanDate, Date returnDate) {
+        this.loanVoucherId = loanVoucherId;
+        this.bookId = bookId;
+        this.loanDate = loanDate;
+        this.returnDate = returnDate;
+    }
+
+    public BorrowerBook(int borrowerBookId, String loanVoucherId, String bookId, Date loanDate, Date returnDate) {
         this.borrowerBookId = borrowerBookId;
         this.loanVoucherId = loanVoucherId;
         this.bookId = bookId;
@@ -28,19 +35,19 @@ public class BorrowerBook {
         this.borrowerBookId = borrowerBookId;
     }
 
-    public int getLoanVoucherId() {
+    public String getLoanVoucherId() {
         return loanVoucherId;
     }
 
-    public void setLoanVoucherId(int loanVoucherId) {
+    public void setLoanVoucherId(String loanVoucherId) {
         this.loanVoucherId = loanVoucherId;
     }
 
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
     }
 

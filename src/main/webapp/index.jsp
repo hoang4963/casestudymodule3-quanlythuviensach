@@ -8,6 +8,7 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
+<<<<<<< HEAD
 <a href="roles">role test</a>
 <br>
 <a href="user/register.jsp">register test</a>
@@ -19,5 +20,8 @@
 =======
 <a href="categories"> category test</a>
 >>>>>>> trung
+=======
+<a href="BorrowerBookServlet">Hello Servlet</a>
+>>>>>>> quan
 </body>
 </html>
