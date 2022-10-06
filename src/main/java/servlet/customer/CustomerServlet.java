@@ -69,7 +69,7 @@ public class CustomerServlet extends HttpServlet {
     private void listCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> listCustomer = customerDAO.selectAllCustomers();
         request.setAttribute("listCustomer", listCustomer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/listCustomer.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
@@ -103,18 +103,19 @@ public class CustomerServlet extends HttpServlet {
         String customerid = request.getParameter("customerId");
         String date = request.getParameter("birthday");
         String email = request.getParameter("email");
-        int phone = Integer.parseInt(request.getParameter("phone"));
+        String phone = request.getParameter("phone");
         String avatar = request.getParameter("avatar");
         String roleid = request.getParameter("roleId");
+        String password = request.getParameter("password");
         if (Objects.equals(date, "")){
-            newCustomer = new Customer(customerid,name,email,phone,avatar,roleid);
+            newCustomer = new Customer(customerid,name,email,phone,avatar,roleid,password);
         }
         else {
             Date birthday = Date.valueOf(date);
-            newCustomer = new Customer(customerid,name,birthday,email,phone,avatar,roleid);
+            newCustomer = new Customer(customerid,name,birthday,email,phone,avatar,roleid,password);
         }
         customerDAO.insertCustomer(newCustomer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/createCustomer.jsp");
         dispatcher.forward(request, response);
     }
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response)
@@ -124,10 +125,11 @@ public class CustomerServlet extends HttpServlet {
         String name = request.getParameter("name");
         Date birthday = Date.valueOf(request.getParameter("birthday"));
         String email = request.getParameter("email");
-        int phone = Integer.parseInt(request.getParameter("phone"));
+        String phone = request.getParameter("phone");
         String avatar = request.getParameter("avatar");
         String roleid = request.getParameter("roleId");
-        Customer customer = new Customer(id,customerid, name,birthday,email,phone,avatar,roleid);
+        String password = request.getParameter("password");
+        Customer customer = new Customer(id,customerid, name,birthday,email,phone,avatar,roleid,password);
         customerDAO.updateCustomer(customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/edit.jsp");
         dispatcher.forward(request, response);

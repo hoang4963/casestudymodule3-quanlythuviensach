@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <html>
 <head>
     <title>Customer Management Application</title>
 </head>
 <body>
-<input type="hidden" id="status" value="<%= request.getAttribute("status")%>"
-       placeholder="<%=request.getAttribute("status")%>">
 <center>
     <h1>Customer Management</h1>
     <h2>
@@ -46,12 +43,6 @@
                 </td>
             </tr>
             <tr>
-                <th>Customer password:</th>
-                <td>
-                    <input type="text" name="password" id="password" size="45"/>
-                </td>
-            </tr>
-            <tr>
                 <th>Customer phone:</th>
                 <td>
                     <input type="text" name="phone" id="phone" size="45"/>
@@ -64,7 +55,7 @@
                 </td>
             </tr>
             <tr>
-                <th>Customer role:</th>
+                <th>Customer roleid:</th>
                 <td>
                     <input type="text" name="roleId" id="RoleId" size="45"/>
                 </td>
@@ -77,15 +68,5 @@
         </table>
     </form>
 </div>
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="js/main.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<link rel="stylesheet" href="alert/dist/sweetalert.css">
-<script type="text/javascript">
-    const status = document.getElementById("status").value;
-    if (status == "success") {
-        swal("Cảm ơn", "Bạn đã đăng ký thành công", "success")
-    }
-</script>
 </body>
 </html>

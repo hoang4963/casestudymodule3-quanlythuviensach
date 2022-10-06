@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDAO implements ICustomerDAO{
-    private static final String INSERT_CUSTOMER_SQL = "INSERT INTO customer (customerId,name,birthday,email,phone,avatar,role_id) VALUES (?,?,?,?,?,?,?);";
+    private static final String INSERT_CUSTOMER_SQL = "INSERT INTO customer (customerId,name,birthday,email,phone,avatar,password,role_id) VALUES (?,?,?,?,?,?,?);";
     private static final String SELECT_CUSTOMER_BY_ID = "select * from customer where id =?";
     private static final String SELECT_ALL_CUSTOMERS = "select * from customer";
     private static final String DELETE_CUSTOMERS_SQL = "delete from customer where id = ?;";
-    private static final String UPDATE_CUSTOMERS_SQL = "update customer set customerId = ?, name = ?, birthday = ?, email = ?, phone = ?, avatar = ?, role_id = ? where id = ?;";
+    private static final String UPDATE_CUSTOMERS_SQL = "update customer set customerId = ?, name = ?, birthday = ?, email = ?, phone = ?, avatar = ?,password =?, role_id = ? where id = ?;";
 
 
 
@@ -27,9 +27,10 @@ public class CustomerDAO implements ICustomerDAO{
             preparedStatement.setString(2, customer.getCustomerName());
             preparedStatement.setDate(3,customer.getCustomerBirthday());
             preparedStatement.setString(4,customer.getCustomerEmail());
-            preparedStatement.setInt(5,customer.getCustomerPhone());
+            preparedStatement.setString(5,customer.getCustomerPhone());
             preparedStatement.setString(6,customer.getCustomerAvatar());
-            preparedStatement.setString(7,customer.getCustomerRoleId());
+            preparedStatement.setString(7,customer.getCustomerPassword());
+            preparedStatement.setString(8,customer.getCustomerRoleId());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         }
@@ -51,10 +52,11 @@ public class CustomerDAO implements ICustomerDAO{
                 String customerName = rs.getString("name");
                 Date birthday = rs.getDate("birthday");
                 String email = rs.getString("email");
-                int phone = rs.getInt("phone");
+                String phone = rs.getString("phone");
                 String avatar = rs.getString("avatar");
                 String roleid = rs.getString("role_id");
-                customer = new Customer(id,customerId,customerName,birthday,email,phone,avatar,roleid);
+                String password = rs.getString("password");
+                customer = new Customer(id,customerId,customerName,birthday,email,phone,avatar,roleid,password);
             }
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -75,10 +77,11 @@ public class CustomerDAO implements ICustomerDAO{
                 String name = rs.getString("name");
                 Date birthday = rs.getDate("birthday");
                 String email = rs.getString("email");
-                int phone = rs.getInt("phone");
+                String phone = rs.getString("phone");
                 String avatar = rs.getString("avatar");
                 String roleid = rs.getString("role_id");
-                customers.add(new Customer(id,customerId,name,birthday,email,phone,avatar,roleid));
+                String password = rs.getString("password");
+                customers.add(new Customer(id,customerId,name,birthday,email,phone,avatar,roleid,password));
             }
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -107,10 +110,11 @@ public class CustomerDAO implements ICustomerDAO{
             preparedStatement.setString(2,customer.getCustomerName());
             preparedStatement.setDate(3,customer.getCustomerBirthday());
             preparedStatement.setString(4,customer.getCustomerEmail());
-            preparedStatement.setInt(5,customer.getCustomerPhone());
+            preparedStatement.setString(5,customer.getCustomerPhone());
             preparedStatement.setString(6,customer.getCustomerAvatar());
-            preparedStatement.setString(7,customer.getCustomerRoleId());
-            preparedStatement.setInt(8,customer.getId());
+            preparedStatement.setString(7,customer.getCustomerPassword());
+            preparedStatement.setString(8,customer.getCustomerRoleId());
+            preparedStatement.setInt(9,customer.getId());
             rowUpdated = preparedStatement.executeUpdate() >0;
         }
         return rowUpdated;
