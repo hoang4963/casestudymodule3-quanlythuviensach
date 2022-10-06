@@ -73,7 +73,7 @@
             </tr>
             <th>Extra Day</th>
             <td>
-                <input type="text" name="extraDate" id="extraDate" size="150"/>
+                <input type="date" name="extraDate" id="extraDate" placeholder="yyyy-MM-dd" size="150"/>
             </td>
             </tr>
             <tr>
