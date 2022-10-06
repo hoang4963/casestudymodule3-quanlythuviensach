@@ -13,5 +13,7 @@
 <a href="user/register.jsp">register test</a>
 <br>
 <a href="books">book test</a>
+<br>
+<a href="customers">Customers</a>
 </body>
 </html>
