@@ -1,4 +1,4 @@
-package com.example.user;
+package servlet.user;
 
 import connection.ConnectionDB;
 
@@ -7,7 +7,6 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
