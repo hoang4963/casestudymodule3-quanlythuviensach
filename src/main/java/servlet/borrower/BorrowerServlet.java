@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -40,12 +41,30 @@ public class BorrowerServlet extends HttpServlet {
                 case "delete":
                     deleteBorrower(request, response);
                     break;
+                case "searchByName":
+                    searchByName(request,response);
+                    break;
                 default:
                     listBorrwer(request, response);
                     break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
+        }
+    }
+
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("searchByName");
+        List<Borrower> searchBorrowers;
+        searchBorrowers = borrowerDAO.searchByName(name);
+        request.setAttribute("searchBorrowers", searchBorrowers);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("borrower/search.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
