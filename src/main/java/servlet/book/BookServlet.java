@@ -1,7 +1,9 @@
 package servlet.book;
 
 import DAO.book.BookDAO;
+import DAO.category.CategoryDAO;
 import models.Book;
+import models.BookCategory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,8 +20,10 @@ import java.util.List;
 public class BookServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private BookDAO bookDAO;
+    private CategoryDAO categoryDAO;
     public void init(){
         bookDAO = new BookDAO();
+        categoryDAO = new CategoryDAO();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +41,7 @@ public class BookServlet extends HttpServlet {
                     break;
                 case "view" :
                     viewBook(request,response);
+
                 default:
                     listBook(request, response);
                     break;
@@ -46,6 +51,8 @@ public class BookServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
+
+
     private void viewBook(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
         Book book = bookDAO.selectBook(id);
@@ -80,7 +87,9 @@ public class BookServlet extends HttpServlet {
 
     private void listBook(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
         List<Book> listBooks = bookDAO.selectAllBooks();
+        List<BookCategory> listCategory = categoryDAO.selectAllCategorys();
         request.setAttribute("listBooks", listBooks);
+        request.setAttribute("listCategories",listCategory);
         RequestDispatcher dispatcher = request.getRequestDispatcher("book/list.jsp");
         dispatcher.forward(request, response);
     }
@@ -101,7 +110,11 @@ public class BookServlet extends HttpServlet {
                 case "delete" :
                     deleteBook(request,response);
                     break;
-
+                case "searchByName" :
+                    searchByName(request, response);
+                    break;
+                case "searchByOriginOrCategory" :
+                    searchByOriginOrCategory(request,response);
                 default:
                     listBook(request, response);
             }
@@ -109,10 +122,29 @@ public class BookServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
+    private void searchByOriginOrCategory(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
+        String origin = request.getParameter("searchOrigin");
+        String category = request.getParameter("searchCategory");
+        List<BookCategory> listCategory = categoryDAO.selectAllCategorys();
+        List<Book> books = bookDAO.searchByOriginOrCategory(origin,category);
+        request.setAttribute("listCategories",listCategory);
+        request.setAttribute("listBooks", books);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("book/search.jsp");
+        requestDispatcher.forward(request, response);
+    }
+
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
+        String name = request.getParameter("searchName");
+        List<BookCategory> listCategory = categoryDAO.selectAllCategorys();
+        request.setAttribute("listCategories",listCategory);
+        List<Book> books = bookDAO.searchByName(name);
+        request.setAttribute("listBooks", books);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("book/search.jsp");
+        requestDispatcher.forward(request, response);
+    }
     private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
         bookDAO.deleteBook(id);
-
         List<Book> listBook = bookDAO.selectAllBooks();
         request.setAttribute("listBook", listBook);
         RequestDispatcher dispatcher = request.getRequestDispatcher("book/list.jsp");

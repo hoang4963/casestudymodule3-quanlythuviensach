@@ -33,8 +33,13 @@
 <br>
 <a href="borrowers">Borrowers</a>
 >>>>>>> hoang
+<<<<<<< HEAD
 >>>>>>> 0d911d28d89a70ec2b1242d877df23da510fddc9
 <br>
 <a href="home.jsp">Home</a>
+=======
+<br>
+<a href="home.jsp">home page</a>
+>>>>>>> trung
 </body>
 </html>
