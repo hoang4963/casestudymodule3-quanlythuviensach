@@ -1,4 +1,4 @@
-package com.example;
+package servlet.bookloanvoucher;
 
 import DAO.bookloanvoucher.BookLoanVoucherDAO;
 import models.BookLoanVoucher;
@@ -106,10 +106,13 @@ public class BookLoanVoucherServlet extends HttpServlet {
     }
     private void updateBookLoanVoucher(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String bookLoanVoucherId = request.getParameter("bookLoanVoucherId");
         String bookLoanVoucherStatus = request.getParameter("bookLoanVoucherStatus");
         String borrowerID = request.getParameter("borrowerID");
+        int bookAmount = Integer.parseInt(request.getParameter("bookAmount"));
         String bookLoanVoucherNote = request.getParameter("bookLoanVoucherNote");
-        BookLoanVoucher bookLoanVoucher = new BookLoanVoucher(bookLoanVoucherStatus, borrowerID, bookLoanVoucherNote);
+        BookLoanVoucher bookLoanVoucher = new BookLoanVoucher(id, bookLoanVoucherId, bookLoanVoucherStatus, borrowerID, bookAmount, bookLoanVoucherNote);
         bookLoanVoucherDAO.updateBookLoanVoucher(bookLoanVoucher);
         RequestDispatcher dispatcher = request.getRequestDispatcher("bookloanvoucher/edit.jsp");
         dispatcher.forward(request, response);

@@ -8,7 +8,7 @@ public class BookLoanVoucher {
     protected int bookAmount;
     protected String bookLoanVoucherNote;
 
-    public BookLoanVoucher(String bookLoanVoucherId, String bookLoanVoucherStatus, String borrowerID) {
+    public BookLoanVoucher(int id, String bookLoanVoucherId, String bookLoanVoucherStatus, String borrowerID, int bookAmount, String bookLoanVoucherNote) {
         this.id = id;
         this.bookLoanVoucherId = bookLoanVoucherId;
         this.bookLoanVoucherStatus = bookLoanVoucherStatus;

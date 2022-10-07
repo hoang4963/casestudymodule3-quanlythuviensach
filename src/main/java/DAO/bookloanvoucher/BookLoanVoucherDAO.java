@@ -12,7 +12,7 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
     private static final String SELECT_BOOK_LOAN_VOUCHER_BY_ID = "select * from bookloanvoucher where id =?";
     private static final String SELECT_ALL_BOOK_LOAN_VOUCHER = "select * from bookloanvoucher";
     private static final String DELETE_BOOK_LOAN_VOUCHER_SQL = "delete from bookloanvoucher where id = ?";
-    private static final String UPDATE_BOOK_LOAN_VOUCHER_SQL = "update bookloanvoucher set status = ?, borrower_id = ?, note = ?  where id = ?";
+    private static final String UPDATE_BOOK_LOAN_VOUCHER_SQL = "update bookloanvoucher set loanvoucherId =?, status = ?, borrower_id = ?, note = ?  where id = ?";
     public BookLoanVoucherDAO() {
     }
     @Override
@@ -42,7 +42,7 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
                 String borrowerID = rs.getString("borrower_id");
                 int bookAmount = rs.getInt("bookamount");
                 String bookLoanVoucherNote = rs.getString("note");
-                bookLoanVoucher = new BookLoanVoucher(bookLoanVoucherId, bookLoanVoucherStatus, borrowerID);
+                bookLoanVoucher = new BookLoanVoucher(id, bookLoanVoucherId, bookLoanVoucherStatus, borrowerID, bookAmount, bookLoanVoucherNote);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -70,10 +70,11 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
         boolean rowUpdated;
         try (Connection connection = ConnectionDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BOOK_LOAN_VOUCHER_SQL)) {
-            preparedStatement.setString(1, bookLoanVoucher.getBookLoanVoucherStatus());
-            preparedStatement.setString(2, bookLoanVoucher.getBorrowerID());
-            preparedStatement.setString(3, bookLoanVoucher.getBookLoanVoucherNote());
-            preparedStatement.setInt(4, bookLoanVoucher.getId());
+            preparedStatement.setString(1, bookLoanVoucher.getBookLoanVoucherId());
+            preparedStatement.setString(2, bookLoanVoucher.getBookLoanVoucherStatus());
+            preparedStatement.setString(3, bookLoanVoucher.getBorrowerID());
+            preparedStatement.setString(4, bookLoanVoucher.getBookLoanVoucherNote());
+            preparedStatement.setInt(5, bookLoanVoucher.getId());
             rowUpdated = preparedStatement.executeUpdate() > 0;
         }
         return rowUpdated;
@@ -93,7 +94,7 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
                 String borrowerID = rs.getString("borrower_id");
                 int bookAmount = rs.getInt("bookamount");
                 String bookLoanVoucherNote = rs.getString("note");
-                bookLoanVouchers.add(new BookLoanVoucher(bookLoanVoucherId, bookLoanVoucherStatus, borrowerID));
+                bookLoanVouchers.add(new BookLoanVoucher(id, bookLoanVoucherId, bookLoanVoucherStatus, borrowerID, bookAmount, bookLoanVoucherNote));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
