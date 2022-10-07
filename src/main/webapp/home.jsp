@@ -6,11 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    if (session.getAttribute("name") == null) {
-        response.sendRedirect("user/login.jsp");
-    }
-%>
+<%--<%--%>
+<%--    if (session.getAttribute("name") == null) {--%>
+<%--        response.sendRedirect("user/login.jsp");--%>
+<%--    }--%>
+<%--%>--%>
 <html lang="en">
 
 <head>
@@ -21,17 +21,17 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-    <link type="text/css" rel="stylesheet" href="${pageContext.servletContext.contextPath}/css-for-homepage/style.css">
-    <link type="text/css" rel="stylesheet" href="${pageContext.servletContext.contextPath}/css-for-homepage/modal.css">
+    <link type="text/css" rel="stylesheet" href="${pageContext.servletContext.contextPath}css/css-for-homepage/style.css">
+    <link type="text/css" rel="stylesheet" href="${pageContext.servletContext.contextPath}css/css-for-homepage/modal.css">
 
     <title>Library's Group TWO</title>
-    <link rel="stylesheet" href="css-for-homepage/modal.css">
-    <link rel="stylesheet" href="css-for-homepage/style.css">
-    <link rel="stylesheet" href="css-for-homepage/bootstrap.css">
-    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/css-for-homepage/modal.css">
+    <link rel="stylesheet" href="css/css-for-homepage/style.css">
+    <link rel="stylesheet" href="css/css-for-homepage/bootstrap.css">
+    <link rel="stylesheet" href="css/css-for-homepage/mobile.css">
     <link rel="stylesheet" href="css/login/login.css">
     <link rel="stylesheet" href="css/add/small.css">
-    <script src="javascript/main.js"></script>
+    <script src="js-for-homepage/javascript/main.js"></script>
     <script src="js-for-homepage/main.js"></script>
 </head>
 
@@ -83,7 +83,7 @@
             </div>
             <div class="modal-body">
                 <div class="img-wrap">
-                    <img src="${pageContext.servletContext.contextPath}/img-for-homepage/intro-bg.jpg" alt="" srcset="">
+                    <img src="${pageContext.servletContext.contextPath}images/intro-bg.jpg" alt="" srcset="">
                     <p></p>
                 </div>
                 <p>To SIGN UP: Please send an email to <a>box_library@gmail.com</a>, as below</p>
@@ -109,19 +109,19 @@
             <div class="image_group2">
                 <div class ="image_avatar">
                     <h4>Phạm Hồng Quân</h4>
-                    <img id="anh" src="img-for-homepage/avatar/quan.jpg">
+                    <img id="anh" src="images/avatar/quan.jpg">
                 </div>
                 <div class ="image_avatar">
                     <h4>Trương Huy Hoàng</h4>
-                    <img id="anh1" src="img-for-homepage/avatar/hoang.jpg">
+                    <img id="anh1" src="images/avatar/hoang.jpg">
                 </div>
                 <div class ="image_avatar">
                     <h4>Dương Văn Hiếu</h4>
-                    <img id="anh2" src="img-for-homepage/avatar/hieu.jpg">
+                    <img id="anh2" src="images/avatar/hieu.jpg">
                 </div>
                 <div class ="image_avatar">
                     <h4>Phạm Huy Trung</h4>
-                    <img id="anh3" src="img-for-homepage/avatar/trung.jpg">
+                    <img id="anh3" src="images/avatar/trung.jpg">
                 </div>
             </div>
             <a href="" data-toggle="modal" data-target="#book_modal"><b>SEE MORE DETAILS</b></a>
@@ -135,7 +135,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="img-wrap">
-                                <img src="${pageContext.servletContext.contextPath}/img-for-homepage/book-modal/brief-history-of-time.jpg"
+                                <img src="${pageContext.servletContext.contextPath}/images/book-modal/brief-history-of-time.jpg"
                                      alt="brief-history-of-time" srcset="">
                                 <p></p>
                             </div>
@@ -145,7 +145,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="img-wrap">
-                                <img src="${pageContext.servletContext.contextPath}/img-for-homepage/book-modal/clean-code.jpg"
+                                <img src="${pageContext.servletContext.contextPath}/images/book-modal/clean-code.jpg"
                                      alt="brief-history-of-time" srcset="">
                                 <p></p>
                             </div>
@@ -156,7 +156,7 @@
 
                         <div class="modal-body">
                             <div class="img-wrap">
-                                <img src="${pageContext.servletContext.contextPath}/img-for-homepage/book-modal/clean-code.jpg"
+                                <img src="${pageContext.servletContext.contextPath}/images/book-modal/clean-code.jpg"
                                      alt="brief-history-of-time" srcset="">
                                 <p></p>
                             </div>
@@ -197,13 +197,13 @@
                         </div>
                         <div class="modal-body">
                             <div class="img-wrap">
-                                <img src="${pageContext.servletContext.contextPath}/img-for-homepage/drinks-modal/cake1.jpg"
+                                <img src="${pageContext.servletContext.contextPath}/images/drinks-modal/cake1.jpg"
                                      alt="cake" srcset="">
-                                <img src="${pageContext.servletContext.contextPath}/img-for-homepage/drinks-modal/drink3.jpg"
+                                <img src="${pageContext.servletContext.contextPath}/images/drinks-modal/drink3.jpg"
                                      alt="drink" srcset="">
-                                <img src="${pageContext.servletContext.contextPath}/img-for-homepage/drinks-modal/drink4.jpg"
+                                <img src="${pageContext.servletContext.contextPath}/images/drinks-modal/drink4.jpg"
                                      alt="drink" srcset="">
-                                <img src="${pageContext.servletContext.contextPath}/img-for-homepage/drinks-modal/drinks1.jpg"
+                                <img src="${pageContext.servletContext.contextPath}/images/drinks-modal/drinks1.jpg"
                                      alt="drink" srcset="">
                                 <p></p>
                             </div>

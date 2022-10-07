@@ -16,10 +16,11 @@ public class RoleDAO implements IRoleDAO {
     private static final String DELETE_ROLES_SQL = "delete from role where id = ?;";
     private static final String UPDATE_ROLES_SQL = "update role set roleId = ?, name = ? where id = ?;";
 
+
+    //Trung
+    //hoangoccho
     public RoleDAO() {
     }
-
-
 
     @Override
     public void insertRole(Role role) throws SQLException {
@@ -36,7 +37,7 @@ public class RoleDAO implements IRoleDAO {
     }
 
     @Override
-    public Role     selectRole(int id) {
+    public Role selectRole(int id) {
         Role role = null;
         try (Connection connection = ConnectionDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ROLE_BY_ID)) {

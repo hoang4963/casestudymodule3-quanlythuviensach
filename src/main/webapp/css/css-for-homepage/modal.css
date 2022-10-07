@@ -1,0 +1,43 @@
+/* THese are css formats for the modal */
+/* For the modal of menu > Signup*/
+ #signup{
+    text-align: center;
+}
+ #signup img{
+    width: 35vw;
+    height: auto;
+}
+
+#signup p{
+    text-align: justify;
+}
+
+/* for all modals in class .intros are below*/
+/* for #book_modal */
+.intros #book_modal img{
+    width:auto;
+    height: auto;
+    text-align: center;
+}
+
+/* for #drink_modal and #coworking_modal*/
+.intros #drink_modal img{
+    width: 30%;
+    height: 30%;
+}
+.intros #coworking_modal img{
+    width: 46%;
+    height: auto;
+}
+
+.intros #drink_modal img[alt="cake"],
+.intros #coworking_modal img[alt="full"]{
+    width: 80%;
+}
+.intros .img-wrap {
+    text-align: center;
+}
+.intros .modal-body > p, 
+.intros .modal-body > ul li{
+    margin-top: 2.5em;
+}
