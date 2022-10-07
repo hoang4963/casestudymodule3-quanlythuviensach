@@ -4,6 +4,7 @@ import DAO.bookloanvoucher.BookLoanVoucherDAO;
 import models.Book;
 import models.BookCategory;
 import models.BookLoanVoucher;
+import models.Borrower;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -36,6 +37,9 @@ public class BookLoanVoucherServlet extends HttpServlet {
                 case "delete":
                     deleteBookLoanVoucher(request, response);
                     break;
+                case "searchByBookLoanVouchers":
+                    searchByBookLoanVouchers(request, response);
+                    break;
                 default:
                     listBookLoanVoucher(request, response);
                     break;
@@ -58,9 +62,6 @@ public class BookLoanVoucherServlet extends HttpServlet {
                     break;
                 case "edit":
                     updateBookLoanVoucher(request, response);
-                case "search":
-                    searchBookLoanVoucher(request, response);
-                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -130,10 +131,18 @@ public class BookLoanVoucherServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("bookloanvoucher/list.jsp");
         dispatcher.forward(request, response);
     }
-    private void searchBookLoanVoucher(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<BookLoanVoucher> bookLoanVouchers = bookLoanVoucherDAO.selectAllBookLoanVoucher();
-        request.setAttribute("bookLoanVouchers",bookLoanVouchers);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("bookloanvoucher/search.jsp");
-        requestDispatcher.forward(request, response);
+    private void searchByBookLoanVouchers(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("searchByBookLoanVouchers");
+        List<BookLoanVoucher> searchBookLoanVouchers;
+        searchBookLoanVouchers = bookLoanVoucherDAO.searchBookLoanVouchers(name);
+        request.setAttribute("searchBookLoanVouchers", searchBookLoanVouchers);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("bookloanvoucher/search.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

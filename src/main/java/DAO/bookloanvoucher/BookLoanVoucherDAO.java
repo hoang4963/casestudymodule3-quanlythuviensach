@@ -3,6 +3,7 @@ package DAO.bookloanvoucher;
 import connection.ConnectionDB;
 import models.Book;
 import models.BookLoanVoucher;
+import models.Borrower;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
     private static final String SELECT_ALL_BOOK_LOAN_VOUCHER = "select * from bookloanvoucher";
     private static final String DELETE_BOOK_LOAN_VOUCHER_SQL = "delete from bookloanvoucher where id = ?";
     private static final String UPDATE_BOOK_LOAN_VOUCHER_SQL = "update bookloanvoucher set loanvoucherId =?, status = ?, borrower_id = ?, note = ?  where id = ?";
-    private static final String SELECT_BY_BOOK_LOAN_VOUCHER_ID = "select * from bookloanvoucher where voucherId like ?;";
+    private static final String SELECT_BY_BOOK_LOAN_VOUCHER_ID = "select * from bookloanvoucher where loanvoucherId like ?;";
     public BookLoanVoucherDAO() {
     }
 
@@ -108,27 +109,25 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
     }
 
 
-    public List<BookLoanVoucher> findByBookLoanVoucherId(String inputBookLoanVoucherId) {
-        List<BookLoanVoucher> bookLoanVouchers = new ArrayList<>();
-        Connection conn = ConnectionDB.getConnection();
-        try {
-            PreparedStatement ps = conn.prepareStatement(SELECT_BY_BOOK_LOAN_VOUCHER_ID);
-            ps.setString(1,  inputBookLoanVoucherId);
-            System.out.println(ps);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
+    public List<BookLoanVoucher> searchBookLoanVouchers(String bookLoanVouchers) {
+        List<BookLoanVoucher> bookLoanVoucher = new ArrayList<>();
+        try(Connection connection = ConnectionDB.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_BOOK_LOAN_VOUCHER_ID)){
+            System.out.println(preparedStatement);
+            preparedStatement.setString(1,"%" + bookLoanVouchers + "%");
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
                 int id = rs.getInt("id");
-                String bookLoanVoucherId =  rs.getString("loanvoucherId");
+                String loanVoucherId = rs.getString("loanvoucherId");
                 String bookLoanVoucherStatus = rs.getString("status");
-                String borrowerID = rs.getString("borrrower_id");
+                String borrowerID = rs.getString("borrower_id");
                 int bookAmount = rs.getInt("bookamount");
                 String bookLoanVoucherNote = rs.getString("note");
-
-                bookLoanVouchers.add(new BookLoanVoucher(id,bookLoanVoucherId,bookLoanVoucherStatus,borrowerID,bookAmount,bookLoanVoucherNote));
+                bookLoanVoucher.add(new BookLoanVoucher(id,loanVoucherId,bookLoanVoucherStatus,borrowerID,bookAmount,bookLoanVoucherNote));
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
         }
-        return bookLoanVouchers;
+        return bookLoanVoucher;
     }
 }

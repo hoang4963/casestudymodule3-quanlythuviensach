@@ -19,7 +19,7 @@
       <form action="/borrowers" method="get">
         <input name="searchByName"  type="text" placeholder="Type something to search">
         <input type="hidden" name="action" value="searchByName">
-        <button type="submit">Seacrh</button>
+        <button type="submit">Search</button>
       </form>
     </tr>
     <tr>

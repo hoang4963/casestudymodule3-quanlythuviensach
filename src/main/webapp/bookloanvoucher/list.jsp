@@ -3,18 +3,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Borrower Book Management Application</title>
+    <title>Book Loan Voucher Management Application</title>
 </head>
 <body>
 <center>
     <h1>Book Loan Voucher Management</h1>
     <h2>
-        <a href="BookLoanVoucherServlet?action=create">Add a new BookLoanVoucher</a>
+        <a href="/BookLoanVoucherServlet?action=create">Add New Book Loan Voucher</a>
     </h2>
 </center>
 <div align="center">
     <table border="1" cellpadding="5">
-        <caption><h2>List of BookLoanVoucher</h2></caption>
+        <caption><h2>List of Book Loan Voucher</h2></caption>
+        <tr>
+            <form action="/BookLoanVoucherServlet" method="get">
+                <input name="searchByBookLoanVouchers"  type="text" placeholder="Type Book Loan Voucher Id">
+                <input type="hidden" name="action" value="searchByBookLoanVouchers">
+                <button type="submit">Search</button>
+            </form>
+        </tr>
         <tr>
             <th>BookLoanVoucherId</th>
             <th>Status</th>
