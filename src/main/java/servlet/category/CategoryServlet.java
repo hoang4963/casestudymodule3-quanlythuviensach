@@ -35,6 +35,9 @@ public class CategoryServlet extends HttpServlet {
                     break;
                 case "view" :
                     viewCategory(request,response);
+                case "delete" :
+                    deleteCategory(request,response);
+                    break;
                 default:
                     listCategory(request, response);
                     break;
@@ -99,9 +102,7 @@ public class CategoryServlet extends HttpServlet {
                 case "edit":
                     updateCategory(request, response);
                     break;
-                case "delete" :
-                    deleteCategory(request,response);
-                    break;
+
 //                case "searchBy" :
 //                    searchByCountry(request, response);
 //                    break;
@@ -119,7 +120,7 @@ public class CategoryServlet extends HttpServlet {
 
         List<BookCategory> categories = categoryDao.selectAllCategorys();
         request.setAttribute("categories", categories);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("category/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("category/delete.jsp");
         dispatcher.forward(request, response);
     }
 

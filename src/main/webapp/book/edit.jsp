@@ -17,7 +17,7 @@
 <center>
     <h1>Edit Book</h1>
     <h2>
-        <a href="books?action=books">Back List All Book</a>
+        <a href="books?action=books" class="btn btn-primary">Back List All Book</a>
     </h2>
     <p>
         <c:if test='${requestScope["message"] != null}'>

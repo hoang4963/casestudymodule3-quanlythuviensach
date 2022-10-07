@@ -22,7 +22,7 @@
         </c:if>
     </p>
     <h2>
-        <a href="books?action=books">Back to book list</a>
+        <a href="books?action=books" class="btn btn-primary">Back to book list</a>
     </h2>
     <h2 style="color: blue">Create New Book</h2>
 </center>
@@ -56,18 +56,37 @@
             <tr>
                 <th>Status</th>
                 <td>
-                    <input type="text" name="status" id="status" size="150"/>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="status" value="new">new
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="status" value="old">old
+                        </label>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <th>Category ID</th>
                 <td>
-                    <input type="text" name="categoryId" id="categoryId" size="150"/>
+                    <select name="categoryId" id="categoryId" >
+                        <option value="">Category</option>
+                        <c:forEach items="${requestScope['listCategories']}" var="category">
+                            <option value="${category.getBookCategoryId()}">${category.getBookCategoryName()}</option>
+                        </c:forEach>
+                    </select>
                 </td>
             </tr>
             <th>Origin</th>
             <td>
-                <input type="text" name="origin" id="origin" size="150"/>
+                <select name="origin" id="origin" >
+                    <option value="" size="50">Origin</option>
+                    <option value="Kim Dong" size="50">Kim Dong</option>
+                    <option value="Hoi Nha Van" size="50">Hoi Nha Van</option>
+                    <option value="Tre" size="50">Tre</option>
+                </select>
             </td>
             </tr>
             </tr>

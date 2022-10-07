@@ -31,7 +31,7 @@
 <p>
     <a href="/books" class="btn btn-primary">Back to Book list</a>
 </p>
-<form method="post">
+<form>
     <fieldset>
         <table class="table">
             <tr>
@@ -68,8 +68,8 @@
             </tr>
 
             <tr>
-                <td><a href="/books?action=edit&id=${book.getId()}" class="btn btn-primary">Edit</a></td>
-                <td><input type="submit" value="Delete customer" class="btn btn-danger"></td>
+                <td><a href="/books?action=edit&id=${requestScope["book"].getId()}" class="btn btn-primary">Edit</a></td>
+                <td><a href="/book?action=delete&id=${requestScope["book"].getId()}" class="btn btn-danger">Delete</a></td>
             </tr>
         </table>
     </fieldset>

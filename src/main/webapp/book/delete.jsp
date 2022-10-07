@@ -27,9 +27,9 @@
     </style>
 </head>
 <body>
-<h1>Delete product Sucess!!!!</h1>
+<h1>Delete Book Sucess!!!!</h1>
 <p>
-    <a href="/books" class="btn btn-danger btn-lg">Back to customer list</a>
+    <a href="/books" class="btn btn-danger btn-lg">Back to Book list</a>
 </p>
 </body>
 </html>

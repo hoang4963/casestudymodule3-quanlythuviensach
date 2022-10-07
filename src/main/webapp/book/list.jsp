@@ -35,18 +35,18 @@
 <h1>Book Management</h1>
 <%--BODY--%>
 <div class="container">
-    <div class="searchContent" style="margin: 100px 0">
+    <div class="searchContent" style="margin: 100px 20px 20px">
         <div class="table">
             <form action="/books" method="post">
                 <table>
                     <tr>
                         <td style="border-top-color : white"><input name="searchName" type="text"
                                                                     placeholder=" What are you looking for ?"
-                                                                    style="height: 70px; width: 800px; border-radius: 50px;border: 1px solid grey; text-indent: 30px">
+                                                                    style="height: 50px; width: 825px; border-radius: 50px;border: 1px solid grey; text-indent: 30px">
                             <input type="hidden" name="action" value="searchByName">
                         </td>
                         <td style="border-top-color : white"><button type="submit" class="btn btn-primary search-btn"
-                                                                     style="height: 70px; width: 200px;border-radius: 50px; border: 1px solid grey">Search</button>
+                                                                     style="height: 50px; width: 200px;border-radius: 50px; border: 1px solid grey">Search</button>
                         </td>
                     </tr>
 
@@ -54,14 +54,14 @@
             </form>
         </div>
     </div>
-    <div class="searchContent" style="margin: 100px 0">
+    <div class="searchContent" style="margin: 20px 20px">
         <div class="table" class="form-group row">
             <form action="/books" method="post">
                 <table>
                     <tr>
                         <td>
                             <select name="searchOrigin" id="searchOrigin" class="form-control form-control-lg"
-                                    style="height: 70px;width: 400px;border-radius: 50px;border: 1px solid grey;">
+                                    style="height: 50px;width: 400px;border-radius: 50px;border: 1px solid grey;">
                                 <option value="">Origin</option>
                                 <c:forEach items="${requestScope['listBooks']}" var="book">
                                     <option value="${book.getBookOrigin()}">${book.getBookOrigin()}</option>
@@ -71,7 +71,7 @@
                         </td>
                         <td>
                             <select name="searchCategory" id="searchCategory" class="form-control form-control-lg"
-                                    style="height: 70px;width: 400px;border-radius: 50px;border: 1px solid grey;">
+                                    style="height: 50px;width: 400px;border-radius: 50px;border: 1px solid grey;">
                                 <option value="">Categories</option>
                                 <c:forEach items="${requestScope['listCategories']}" var="category">
                                     <option value="${category.getBookCategoryId()}">${category.getBookCategoryName()}</option>
@@ -81,14 +81,15 @@
                         </td>
 
                         <td style="border-top-color : white"><button type="submit" class="btn btn-primary search-btn"
-                                                                     style="height: 70px; width: 200px;border-radius: 50px; border: 1px solid grey">Search</button>
+                                                                     style="height: 50px; width: 200px;border-radius: 50px; border: 1px solid grey">Search</button>
                         </td>
 
                 </table>
             </form>
         </div>
     </div>
-
+    <a href="/books?action=create"
+       class="btn btn-primary" style="width: 100%;border-radius: 50px;border: 1px solid grey;">Add</a>
     <div class="categoryName" style="margin-bottom: 20px">
         <h3>List of Books</h3>
     </div>

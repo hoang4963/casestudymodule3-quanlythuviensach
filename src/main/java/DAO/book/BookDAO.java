@@ -15,7 +15,7 @@ public class BookDAO implements IBookDAO {
     private static final String UPDATE_BOOK_SQL = "update book set bookId = ?,name = ?, description = ?, image = ?, status = ?, category_id = ?, origin = ?,extraDate = ? where id = ?";
     private static final String SELECT_BY_NAME = "select * from book where name like ?;";
     private static final String SELECT_BY_ORIGIN_OR_CATEGORY = "select * from book where origin = ? or category_id = ?;";
-
+    private static final String SORT_BOOK_BY_DATE ="select * from booktoday;";
     public BookDAO() {
     }
 
@@ -42,32 +42,32 @@ public class BookDAO implements IBookDAO {
 
     }
 
-    @Override
-    public List<Book> selectAllBooks() {
-        List<Book> books = new ArrayList<>();
-        try (Connection connection = ConnectionDB.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_BOOKS)) {
-            System.out.println(preparedStatement);
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String bookId =  rs.getString("bookId");
-                String name = rs.getString("name");
-                String description = rs.getString("description");
-                String image = rs.getString("image");
-                String status = rs.getString("status");
-                String category_id = rs.getString("category_id");
-                String origin = rs.getString("origin");
-                Date extraDate = rs.getDate("extraDate");
-
-                books.add(new Book(id,bookId,name,description,image,status,category_id,origin,extraDate));
-            }
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-        return books;
-    }
+//    @Override
+//    public List<Book> selectAllBooks() {
+//        List<Book> books = new ArrayList<>();
+//        try (Connection connection = ConnectionDB.getConnection();
+//             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_BOOKS)) {
+//            System.out.println(preparedStatement);
+//            ResultSet rs = preparedStatement.executeQuery();
+//
+//            while (rs.next()) {
+//                int id = rs.getInt("id");
+//                String bookId =  rs.getString("bookId");
+//                String name = rs.getString("name");
+//                String description = rs.getString("description");
+//                String image = rs.getString("image");
+//                String status = rs.getString("status");
+//                String category_id = rs.getString("category_id");
+//                String origin = rs.getString("origin");
+//                Date extraDate = rs.getDate("extraDate");
+//
+//                books.add(new Book(id,bookId,name,description,image,status,category_id,origin,extraDate));
+//            }
+//        } catch (SQLException e) {
+//            printSQLException(e);
+//        }
+//        return books;
+//    }
 
     @Override
     public Book selectBook(int findId) {
@@ -189,6 +189,33 @@ public class BookDAO implements IBookDAO {
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        }
+        return books;
+    }
+    @Override
+    public List<Book> selectAllBookSortByDay() {
+        List<Book> books = new ArrayList<>();
+        try (Connection connection = ConnectionDB.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SORT_BOOK_BY_DATE)) {
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String bookId =  rs.getString("bookId");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                String image = rs.getString("image");
+                String status = rs.getString("status");
+                String category_id = rs.getString("category_id");
+                String origin = rs.getString("origin");
+                Date extraDate = rs.getDate("extraDate");
+                int days = rs.getInt("days");
+
+                books.add(new Book(id,bookId,name,description,image,status,category_id,origin,extraDate,days));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
         }
         return books;
     }

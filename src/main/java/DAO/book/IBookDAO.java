@@ -10,10 +10,13 @@ public interface IBookDAO {
 
     public Book selectBook(int id);
 
-    public List<Book> selectAllBooks();
+//    public List<Book> selectAllBooks();
 
     public  boolean deleteBook(int id) throws SQLException;
 
     public boolean updateBook(Book book) throws SQLException;
+    public List<Book> searchByName(String inputName);
 
+    public List<Book> searchByOriginOrCategory(String inputOrigin,String inputCategory);
+    public List<Book> selectAllBookSortByDay();
 }

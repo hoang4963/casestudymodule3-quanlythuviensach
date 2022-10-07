@@ -3,7 +3,7 @@ package models;
 import java.sql.Date;
 
 
-public class Book {
+public class Book implements Comparable<Book>{
     protected  int id;
     protected String bookId;
     protected String bookName;
@@ -14,6 +14,8 @@ public class Book {
     protected String bookOrigin;
 
     protected Date extraDate;
+
+    protected int days;
 
     public Book() {
     }
@@ -39,6 +41,19 @@ public class Book {
         this.bookCategoryId = bookCategoryId;
         this.bookOrigin = bookOrigin;
         this.extraDate = extraDate;
+    }
+
+    public Book(int id, String bookId, String bookName, String bookDescription, String bookImage, String bookStatus, String bookCategoryId, String bookOrigin, Date extraDate, int days) {
+        this.id = id;
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.bookDescription = bookDescription;
+        this.bookImage = bookImage;
+        this.bookStatus = bookStatus;
+        this.bookCategoryId = bookCategoryId;
+        this.bookOrigin = bookOrigin;
+        this.extraDate = extraDate;
+        this.days = days;
     }
 
     public int getId() {
@@ -112,6 +127,19 @@ public class Book {
 
     public void setExtraDate(Date extraDate) {
         this.extraDate = extraDate;
+    }
+
+    public int getDays() {
+        return days;
+    }
+
+    public void setDays(int days) {
+        this.days = days;
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        return o.getDays() - this.getDays();
     }
 }
 
