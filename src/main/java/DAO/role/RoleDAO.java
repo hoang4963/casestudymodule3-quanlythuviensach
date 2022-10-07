@@ -77,12 +77,12 @@ public class RoleDAO implements IRoleDAO {
     @Override
     public boolean deleteRole(int id) throws SQLException {
         boolean rowDeleted;
-        try(Connection connection = ConnectionDB.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_ROLES_SQL)){
-            System.out.println(preparedStatement);
-            preparedStatement.setInt(1,id);
-            rowDeleted = preparedStatement.executeUpdate() >0;
-        }
+            try(Connection connection = ConnectionDB.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(DELETE_ROLES_SQL)){
+                System.out.println(preparedStatement);
+                preparedStatement.setInt(1,id);
+                rowDeleted = preparedStatement.executeUpdate() >0;
+            }
         return rowDeleted;
     }
 

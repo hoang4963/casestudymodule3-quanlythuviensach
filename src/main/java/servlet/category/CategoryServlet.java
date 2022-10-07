@@ -116,12 +116,17 @@ public class CategoryServlet extends HttpServlet {
 
     private void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
-        categoryDao.deleteCategory(id);
+         boolean rowDeleted =   categoryDao.deleteCategory(id);
+            if (rowDeleted){
+                List<BookCategory> categories = categoryDao.selectAllCategorys();
+                request.setAttribute("categories", categories);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("category/delete.jsp");
+                dispatcher.forward(request, response);
+            }else {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("error-404.jsp");
+                dispatcher.forward(request, response);
+            }
 
-        List<BookCategory> categories = categoryDao.selectAllCategorys();
-        request.setAttribute("categories", categories);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("category/delete.jsp");
-        dispatcher.forward(request, response);
     }
 
     private void updateCategory(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {

@@ -3,6 +3,7 @@ package DAO.category;
 import connection.ConnectionDB;
 import models.BookCategory;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +18,24 @@ public class CategoryDAO implements ICategoryDAO {
     private static final String DELETE_CATEGORY_SQL ="delete from bookcategory where id = ?";
     private static final String UPDATE_CATEGORY_SQL = "update bookcategory set categoryId = ?,name = ? where id = ?";
 
+    private static final String CHECK_ID_CATEGORY_HAS_BOOK = "select bookcategory.id from bookcategory inner join book where categoryId = book.category_id group by categoryId;";
     public CategoryDAO() {
+    }
+    private static List<Integer> listIdCategoryHasBook(){
+        List<Integer> idRolesHasBook = new ArrayList<>();
+        System.out.println(CHECK_ID_CATEGORY_HAS_BOOK);
+        try (Connection connection = ConnectionDB.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(CHECK_ID_CATEGORY_HAS_BOOK)){
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("id");
+                idRolesHasBook.add(id);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return idRolesHasBook;
     }
 
     @Override
@@ -97,11 +115,24 @@ public class CategoryDAO implements ICategoryDAO {
     @Override
     public boolean deleteCategory(int id) throws SQLException {
         boolean rowDeleted;
-        try(Connection connection = ConnectionDB.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CATEGORY_SQL)) {
-            preparedStatement.setInt(1,id);
-            rowDeleted = preparedStatement.executeUpdate() > 0;
+        boolean check = false;
+        List<Integer> integerList = CategoryDAO.listIdCategoryHasBook();
+        for (int i = 0; i < integerList.size(); i++) {
+            if (integerList.get(i) == i){
+                check = true;
+                break;
+            }
         }
+        if (!check){
+            try(Connection connection = ConnectionDB.getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CATEGORY_SQL)) {
+                preparedStatement.setInt(1,id);
+                rowDeleted = preparedStatement.executeUpdate() > 0;
+            }catch (SQLException e){
+                return false;
+            }
+        }
+        else rowDeleted = false;
         return rowDeleted;
     }
 
