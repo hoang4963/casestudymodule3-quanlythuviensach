@@ -13,6 +13,8 @@ public class BookDAO implements IBookDAO {
     private static final String SELECT_ALL_BOOKS = "select * from book";
     private static final String DELETE_BOOK_SQL ="delete from book where id = ?";
     private static final String UPDATE_BOOK_SQL = "update book set bookId = ?,name = ?, description = ?, image = ?, status = ?, category_id = ?, origin = ?,extraDate = ? where id = ?";
+    private static final String SELECT_BY_NAME = "select * from book where name like ?;";
+    private static final String SELECT_BY_ORIGIN_OR_CATEGORY = "select * from book where origin = ? or category_id = ?;";
 
     public BookDAO() {
     }
@@ -137,5 +139,57 @@ public class BookDAO implements IBookDAO {
             }
         }
     }
+    public List<Book> searchByName(String inputName) {
+        List<Book> books = new ArrayList<>();
+        Connection conn = ConnectionDB.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement(SELECT_BY_NAME);
+            ps.setString(1, "%"+ inputName + "%");
+            System.out.println(ps);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String bookId =  rs.getString("bookId");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                String image = rs.getString("image");
+                String status = rs.getString("status");
+                String category_id = rs.getString("category_id");
+                String origin = rs.getString("origin");
+                Date extraDate = rs.getDate("extraDate");
 
+                books.add(new Book(id,bookId,name,description,image,status,category_id,origin,extraDate));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return books;
+    }
+    public List<Book> searchByOriginOrCategory(String inputOrigin,String inputCategory) {
+        List<Book> books = new ArrayList<>();
+        Connection conn = ConnectionDB.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement(SELECT_BY_ORIGIN_OR_CATEGORY);
+            ps.setString(1,  inputOrigin);
+            ps.setString(2,  inputCategory);
+            System.out.println(ps);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String bookId =  rs.getString("bookId");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                String image = rs.getString("image");
+                String status = rs.getString("status");
+                String category_id = rs.getString("category_id");
+                String origin = rs.getString("origin");
+                Date extraDate = rs.getDate("extraDate");
+
+                books.add(new Book(id,bookId,name,description,image,status,category_id,origin,extraDate));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return books;
+    }
 }

@@ -28,5 +28,7 @@
 <br>
 <a href="borrowers">Borrowers</a>
 >>>>>>> hoang
+<br>
+<a href="home.jsp">home page</a>
 </body>
 </html>
