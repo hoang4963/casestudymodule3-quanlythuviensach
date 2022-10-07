@@ -46,7 +46,7 @@
 
             <tr>
                 <td><a href="/categories?action=edit&id=${category.getId()}" class="btn btn-primary">Edit</a></td>
-                <td><input type="submit" value="Delete customer" class="btn btn-danger"></td>
+                <td><a href="/categories?action=delete&id=${requestScope["category"].getId()}" class="btn btn-danger">Delete</a></td>
 
                 <%--                <a href="/books?action=delete&id=${book.getId()}">Delete</a>--%>
 

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 
 @WebServlet(name = "BookServlet", value = "/books")
@@ -41,9 +42,11 @@ public class BookServlet extends HttpServlet {
                     break;
                 case "view" :
                     viewBook(request,response);
-
+                case "delete" :
+                    deleteBook(request,response);
+                    break;
                 default:
-                    listBook(request, response);
+                    sortByDays(request,response);
                     break;
             }
         }catch(SQLException ex)
@@ -51,7 +54,15 @@ public class BookServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
-
+    private void sortByDays(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
+        List<Book> listBooks = bookDAO.selectAllBookSortByDay();
+        List<BookCategory> listCategory = categoryDAO.selectAllCategorys();
+        Collections.sort(listBooks);
+        request.setAttribute("listBooks", listBooks);
+        request.setAttribute("listCategories",listCategory);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("book/list.jsp");
+        dispatcher.forward(request, response);
+    }
 
     private void viewBook(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -81,18 +92,21 @@ public class BookServlet extends HttpServlet {
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+
+        List<BookCategory> listCategory = categoryDAO.selectAllCategorys();
+        request.setAttribute("listCategories",listCategory);
         RequestDispatcher dispatcher = request.getRequestDispatcher("book/create.jsp");
         dispatcher.forward(request, response);
     }
 
-    private void listBook(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
-        List<Book> listBooks = bookDAO.selectAllBooks();
-        List<BookCategory> listCategory = categoryDAO.selectAllCategorys();
-        request.setAttribute("listBooks", listBooks);
-        request.setAttribute("listCategories",listCategory);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("book/list.jsp");
-        dispatcher.forward(request, response);
-    }
+//    private void listBook(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
+//        List<Book> listBooks = bookDAO.selectAllBooks();
+//        List<BookCategory> listCategory = categoryDAO.selectAllCategorys();
+//        request.setAttribute("listBooks", listBooks);
+//        request.setAttribute("listCategories",listCategory);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("book/list.jsp");
+//        dispatcher.forward(request, response);
+//    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -107,16 +121,15 @@ public class BookServlet extends HttpServlet {
                 case "edit":
                     updateBook(request, response);
                     break;
-                case "delete" :
-                    deleteBook(request,response);
-                    break;
+
                 case "searchByName" :
                     searchByName(request, response);
                     break;
                 case "searchByOriginOrCategory" :
                     searchByOriginOrCategory(request,response);
                 default:
-                    listBook(request, response);
+                    sortByDays(request,response);
+                    break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
@@ -145,9 +158,9 @@ public class BookServlet extends HttpServlet {
     private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
         bookDAO.deleteBook(id);
-        List<Book> listBook = bookDAO.selectAllBooks();
+        List<Book> listBook = bookDAO.selectAllBookSortByDay();
         request.setAttribute("listBook", listBook);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("book/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("book/delete.jsp");
         dispatcher.forward(request, response);
     }
 
