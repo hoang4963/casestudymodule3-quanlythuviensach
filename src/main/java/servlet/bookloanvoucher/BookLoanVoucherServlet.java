@@ -1,6 +1,7 @@
 package servlet.bookloanvoucher;
 
 import DAO.bookloanvoucher.BookLoanVoucherDAO;
+import DAO.borrower.BorrowerDAO;
 import models.Book;
 import models.BookCategory;
 import models.BookLoanVoucher;
@@ -16,8 +17,11 @@ import java.util.List;
 @WebServlet(name = "BookLoanVoucherServlet", value = "/BookLoanVoucherServlet")
 public class BookLoanVoucherServlet extends HttpServlet {
     private BookLoanVoucherDAO bookLoanVoucherDAO;
+    private BorrowerDAO borrowerDAO;
     public void init() {
+
         bookLoanVoucherDAO = new BookLoanVoucherDAO();
+        borrowerDAO = new BorrowerDAO();
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,6 +43,9 @@ public class BookLoanVoucherServlet extends HttpServlet {
                     break;
                 case "searchByBookLoanVouchers":
                     searchByBookLoanVouchers(request, response);
+                    break;
+                case "view":
+                    viewBorrowerBook(request, response);
                     break;
                 default:
                     listBookLoanVoucher(request, response);
@@ -144,5 +151,17 @@ public class BookLoanVoucherServlet extends HttpServlet {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    private void viewBorrowerBook(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Borrower borrower = borrowerDAO.selectBorrower(id);
+        RequestDispatcher dispatcher;
+        if (borrower == null){
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        } else {
+            request.setAttribute("borrower",borrower);
+            dispatcher = request.getRequestDispatcher("bookloanvoucher/view.jsp");
+        }
+        dispatcher.forward(request,response);
     }
 }
