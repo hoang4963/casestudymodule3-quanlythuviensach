@@ -1,6 +1,8 @@
 package servlet.bookloanvoucher;
 
 import DAO.bookloanvoucher.BookLoanVoucherDAO;
+import models.Book;
+import models.BookCategory;
 import models.BookLoanVoucher;
 
 import javax.servlet.*;
@@ -56,6 +58,8 @@ public class BookLoanVoucherServlet extends HttpServlet {
                     break;
                 case "edit":
                     updateBookLoanVoucher(request, response);
+                case "search":
+                    searchBookLoanVoucher(request, response);
                     break;
             }
         } catch (SQLException ex) {
@@ -125,5 +129,11 @@ public class BookLoanVoucherServlet extends HttpServlet {
         request.setAttribute("bookLoanVoucher", listBookLoanVoucher);
         RequestDispatcher dispatcher = request.getRequestDispatcher("bookloanvoucher/list.jsp");
         dispatcher.forward(request, response);
+    }
+    private void searchBookLoanVoucher(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<BookLoanVoucher> bookLoanVouchers = bookLoanVoucherDAO.selectAllBookLoanVoucher();
+        request.setAttribute("bookLoanVouchers",bookLoanVouchers);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("bookloanvoucher/search.jsp");
+        requestDispatcher.forward(request, response);
     }
 }

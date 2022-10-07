@@ -15,7 +15,7 @@ public class Book {
 
     protected Date extraDate;
 
-    public Book() {
+    public Book(int id, String bookLoanVoucherId, String bookLoanVoucherStatus, String borrowerID, int bookAmount, String bookLoanVoucherNote) {
     }
 
     public Book(int id,String bookId, String bookName, String bookDescription, String bookImage, String bookStatus, String bookCategoryId, String bookOrigin, Date extraDate) {

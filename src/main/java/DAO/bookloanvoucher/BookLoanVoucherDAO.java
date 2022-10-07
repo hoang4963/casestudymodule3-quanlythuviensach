@@ -1,11 +1,14 @@
 package DAO.bookloanvoucher;
 
 import connection.ConnectionDB;
+import models.Book;
 import models.BookLoanVoucher;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
     private static final String INSERT_BOOK_LOAN_VOUCHER_SQL = "INSERT INTO bookloanvoucher (loanvoucherId, status, borrower_id, bookamount, note) VALUES (?,?,?,?,?)";
@@ -13,8 +16,10 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
     private static final String SELECT_ALL_BOOK_LOAN_VOUCHER = "select * from bookloanvoucher";
     private static final String DELETE_BOOK_LOAN_VOUCHER_SQL = "delete from bookloanvoucher where id = ?";
     private static final String UPDATE_BOOK_LOAN_VOUCHER_SQL = "update bookloanvoucher set loanvoucherId =?, status = ?, borrower_id = ?, note = ?  where id = ?";
+    private static final String SELECT_BY_BOOK_LOAN_VOUCHER_ID = "select * from bookloanvoucher where voucherId like ?;";
     public BookLoanVoucherDAO() {
     }
+
     @Override
     public boolean deleteBookLoanVoucher(int id) throws SQLException {
         boolean rowDeleted;
@@ -98,6 +103,31 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        }
+        return bookLoanVouchers;
+    }
+
+
+    public List<BookLoanVoucher> findByBookLoanVoucherId(String inputBookLoanVoucherId) {
+        List<BookLoanVoucher> bookLoanVouchers = new ArrayList<>();
+        Connection conn = ConnectionDB.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement(SELECT_BY_BOOK_LOAN_VOUCHER_ID);
+            ps.setString(1,  inputBookLoanVoucherId);
+            System.out.println(ps);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String bookLoanVoucherId =  rs.getString("loanvoucherId");
+                String bookLoanVoucherStatus = rs.getString("status");
+                String borrowerID = rs.getString("borrrower_id");
+                int bookAmount = rs.getInt("bookamount");
+                String bookLoanVoucherNote = rs.getString("note");
+
+                bookLoanVouchers.add(new BookLoanVoucher(id,bookLoanVoucherId,bookLoanVoucherStatus,borrowerID,bookAmount,bookLoanVoucherNote));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return bookLoanVouchers;
     }

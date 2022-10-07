@@ -71,7 +71,7 @@
         </c:forEach>
     </table>
 </div>
-<div><a href="/books" class="btn btn-primary">back main menu</a></div>
+<div><a href="/books" class="bt n btn-primary">back main menu</a></div>
 </body>
 </html>
 </body>

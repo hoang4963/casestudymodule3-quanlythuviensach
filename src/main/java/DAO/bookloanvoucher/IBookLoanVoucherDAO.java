@@ -12,4 +12,5 @@ public interface IBookLoanVoucherDAO {
     public void insertBookLoanVoucher(BookLoanVoucher bookLoanVoucher) throws SQLException;
     public boolean updateBookLoanVoucher(BookLoanVoucher bookLoanVoucher) throws SQLException;
     public List<BookLoanVoucher> selectAllBookLoanVoucher();
+    public List<BookLoanVoucher> findByBookLoanVoucherId(String inputBookLoanVoucherId);
 }
