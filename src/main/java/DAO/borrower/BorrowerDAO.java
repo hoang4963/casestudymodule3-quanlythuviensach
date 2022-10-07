@@ -15,7 +15,7 @@ public class BorrowerDAO implements IBorrowerDAO {
     private static final String DELETE_BORROWERS_SQL = "delete from borrower where id = ?;";
     private static final String UPDATE_BORROWERS_SQL = "update borrower set borrowerId = ?, name = ?, birthday = ?, address =?, customer_id = ? where id = ?;";
 
-
+    private static final String SEARCH_BORROWERS_BY_NAME = "select * from borrower where borrower.name like ?;";
 
     public BorrowerDAO() {
     }
@@ -107,5 +107,28 @@ public class BorrowerDAO implements IBorrowerDAO {
             rowUpdated = preparedStatement.executeUpdate() >0;
         }
         return rowUpdated;
+    }
+
+    @Override
+    public List<Borrower> searchByName(String name) {
+        List<Borrower> borrowers = new ArrayList<>();
+        try(Connection connection = ConnectionDB.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_BORROWERS_BY_NAME)){
+            System.out.println(preparedStatement);
+            preparedStatement.setString(1,"%" + name + "%");
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String borrowerId = rs.getString("borrowerId");
+                String borrowerName = rs.getString("name");
+                Date birthday = rs.getDate("birthday");
+                String address = rs.getString("address");
+                String customerId = rs.getString("customer_id");
+                borrowers.add(new Borrower(id,borrowerId,borrowerName,birthday,address,customerId));
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return borrowers;
     }
 }

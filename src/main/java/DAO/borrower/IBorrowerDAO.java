@@ -15,4 +15,5 @@ public interface IBorrowerDAO {
     public boolean deleteBorrower(int id) throws SQLException;
 
     public boolean updateBorrower(Borrower borrower) throws SQLException;
+    public List<Borrower> searchByName(String name);
 }
