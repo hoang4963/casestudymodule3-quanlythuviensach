@@ -16,6 +16,13 @@
     <table border="1" cellpadding="5">
         <caption><h2>List of Customers</h2></caption>
         <tr>
+            <form action="/customers" method="get">
+                <input name="searchByName"  type="text" placeholder="Type something to search">
+                <input type="hidden" name="action" value="searchByName">
+                <button type="submit">Seacrh</button>
+            </form>
+        </tr>
+        <tr>
             <th>CustomerId</th>
             <th>Name</th>
             <th>Birthday</th>

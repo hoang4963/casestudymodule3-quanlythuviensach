@@ -1,5 +1,6 @@
 package DAO.customer;
 
+import models.Borrower;
 import models.Customer;
 
 import java.sql.SQLException;
@@ -15,4 +16,6 @@ public interface ICustomerDAO {
     public boolean deleteCustomer(int id) throws SQLException;
 
     public boolean updateCustomer(Customer customer) throws SQLException;
+
+    public List<Customer> searchByName(String name);
 }
