@@ -1,6 +1,7 @@
 package DAO.customer;
 
 import connection.ConnectionDB;
+import models.Borrower;
 import models.Customer;
 
 import java.sql.*;
@@ -14,9 +15,35 @@ public class CustomerDAO implements ICustomerDAO{
     private static final String DELETE_CUSTOMERS_SQL = "delete from customer where id = ?;";
     private static final String UPDATE_CUSTOMERS_SQL = "update customer set customerId = ?, name = ?, birthday = ?, email = ?, phone = ?, avatar = ?,password =?, role_id = ? where id = ?;";
 
-
+    private static final String SEARCH_CUSTOMERS_BY_NAME = "select * from customer where customer.name like ?;";
 
     public CustomerDAO() {
+    }
+
+    @Override
+    public List<Customer> searchByName(String name) {
+        List<Customer> customers = new ArrayList<>();
+        try(Connection connection = ConnectionDB.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_CUSTOMERS_BY_NAME)){
+            System.out.println(preparedStatement);
+            preparedStatement.setString(1,"%" + name + "%");
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String customerId = rs.getString("customerId");
+                String customerName = rs.getString("name");
+                Date birthday = rs.getDate("birthday");
+                String email = rs.getString("email");
+                String phone = rs.getString("phone");
+                String avatar = rs.getString("avatar");
+                String roleid = rs.getString("role_id");
+                String password = rs.getString("password");
+                customers.add(new Customer(id,customerId,customerName,birthday,email,phone,avatar,roleid,password));
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return customers;
     }
 
     @Override

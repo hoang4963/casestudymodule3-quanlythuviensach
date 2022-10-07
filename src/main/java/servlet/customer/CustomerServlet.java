@@ -1,6 +1,7 @@
 package servlet.customer;
 
 import DAO.customer.CustomerDAO;
+import models.Borrower;
 import models.Customer;
 
 import javax.servlet.RequestDispatcher;
@@ -39,12 +40,30 @@ public class CustomerServlet extends HttpServlet {
                 case "delete":
                     deleteCustomer(request, response);
                     break;
+                case "searchByName":
+                    searchByName(request,response);
+                    break;
                 default:
                     listCustomer(request, response);
                     break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
+        }
+    }
+
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("searchByName");
+        List<Customer> searchCustomer;
+        searchCustomer = customerDAO.searchByName(name);
+        request.setAttribute("searchCustomer", searchCustomer);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/search.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
