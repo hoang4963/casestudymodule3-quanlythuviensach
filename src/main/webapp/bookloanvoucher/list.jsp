@@ -17,12 +17,12 @@
         <caption><h2>List of BookLoanVoucher</h2></caption>
         <tr>
             <th>BookLoanVoucherId</th>
-            <thStatus</th>
+            <th>Status</th>
             <th>BorrowerID</th>
             <th>BookAmount</th>
             <th>Note</th>
         </tr>
-        <c:forEach var="bookLoanVoucher" items="${listBookLoanVoucher}">
+        <c:forEach var="bookLoanVoucher" items="${bookLoanVoucher}">
             <tr>
                 <td><c:out value="${bookLoanVoucher.getBookLoanVoucherId()}"/></td>
                 <td><c:out value="${bookLoanVoucher.getBookLoanVoucherStatus()}"/></td>
@@ -30,8 +30,8 @@
                 <td><c:out value="${bookLoanVoucher.getBookAmount()}"/></td>
                 <td><c:out value="${bookLoanVoucher.getBookLoanVoucherNote()}"/></td>
                 <td>
-                    <a href="/BookLoanVoucherServlet?action=edit&id=${bookLoanVoucher.getBookLoanVoucherId()}">Edit</a>
-                    <a href="/BookLoanVoucherServlet?action=delete&id=${bookLoanVoucher.getBookLoanVoucherId()}">Delete</a>
+                    <a href="/BookLoanVoucherServlet?action=edit&id=${bookLoanVoucher.getId()}">Edit</a>
+                    <a href="/BookLoanVoucherServlet?action=delete&id=${bookLoanVoucher.getId()}">Delete</a>
                 </td>
             </tr>
         </c:forEach>

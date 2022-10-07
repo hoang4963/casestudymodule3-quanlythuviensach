@@ -1,16 +1,15 @@
 package models;
 
 public class BookLoanVoucher {
-    protected int bookLoanVoucherId;
+    protected int id;
+    protected String bookLoanVoucherId;
     protected String bookLoanVoucherStatus;
     protected String borrowerID;
     protected int bookAmount;
     protected String bookLoanVoucherNote;
 
-    public BookLoanVoucher(String bookLoanVoucherStatus, String borrowerID, int bookAmount, String bookLoanVoucherNote) {
-    }
-
-    public BookLoanVoucher(int bookLoanVoucherId, String bookLoanVoucherStatus, String borrowerID, int bookAmount, String bookLoanVoucherNote) {
+    public BookLoanVoucher(String bookLoanVoucherId, String bookLoanVoucherStatus, String borrowerID) {
+        this.id = id;
         this.bookLoanVoucherId = bookLoanVoucherId;
         this.bookLoanVoucherStatus = bookLoanVoucherStatus;
         this.borrowerID = borrowerID;
@@ -18,11 +17,30 @@ public class BookLoanVoucher {
         this.bookLoanVoucherNote = bookLoanVoucherNote;
     }
 
-    public int getBookLoanVoucherId() {
+    public BookLoanVoucher(String bookLoanVoucherId, String bookLoanVoucherStatus, String borrowerID, int bookAmount, String bookLoanVoucherNote) {
+        this.bookLoanVoucherId = bookLoanVoucherId;
+        this.bookLoanVoucherStatus = bookLoanVoucherStatus;
+        this.borrowerID = borrowerID;
+        this.bookAmount = bookAmount;
+        this.bookLoanVoucherNote = bookLoanVoucherNote;
+    }
+
+    public BookLoanVoucher() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getBookLoanVoucherId() {
         return bookLoanVoucherId;
     }
 
-    public void setBookLoanVoucherId(int bookLoanVoucherId) {
+    public void setBookLoanVoucherId(String bookLoanVoucherId) {
         this.bookLoanVoucherId = bookLoanVoucherId;
     }
 

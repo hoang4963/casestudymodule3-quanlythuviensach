@@ -19,6 +19,12 @@
                 <h2>Add New BookLoanVoucher</h2>
             </caption>
             <tr>
+                <th>Loan Voucher ID:</th>
+                <td>
+                    <input type="text" name="bookLoanVoucherId" id="bookLoanVoucherId" size="45"/>
+                </td>
+            </tr>
+            <tr>
                 <th>Status:</th>
                 <td>
                     <input type="text" name="bookLoanVoucherStatus" id="bookLoanVoucherStatus" size="45"/>

@@ -21,7 +21,7 @@
                 </h2>
             </caption>
             <c:if test="${bookLoanVoucher != null}">
-                <input type="hidden" name="id" value="<c:out value='${bookLoanVoucher.bookLoanVoucherId}' />"/>
+                <input type="hidden" name="id" value="<c:out value='${bookLoanVoucher.id}' />"/>
             </c:if>
             <tr>
                 <th>Status:</th>

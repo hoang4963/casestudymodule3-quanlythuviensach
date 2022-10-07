@@ -1,15 +1,12 @@
 package com.example;
 
 import DAO.bookloanvoucher.BookLoanVoucherDAO;
-import DAO.borrowerbook.BorrowerBookDAO;
 import models.BookLoanVoucher;
-import models.BorrowerBook;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -85,7 +82,7 @@ public class BookLoanVoucherServlet extends HttpServlet {
     }
     private void listBookLoanVoucher(HttpServletRequest request, HttpServletResponse response) {
         List<BookLoanVoucher> listBookLoanVoucher = bookLoanVoucherDAO.selectAllBookLoanVoucher();
-        request.setAttribute("listBorrowerBook", listBookLoanVoucher);
+        request.setAttribute("bookLoanVoucher", listBookLoanVoucher);
         RequestDispatcher dispatcher = request.getRequestDispatcher("bookloanvoucher/list.jsp");
         try {
             dispatcher.forward(request, response);
@@ -97,23 +94,22 @@ public class BookLoanVoucherServlet extends HttpServlet {
     }
     private void insertBookLoanVoucher(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-        String bookLoanVoucherStatus = request.getParameter("status");
-        String borrowerID = request.getParameter("borrower_id");
-        int bookAmount = Integer.parseInt(request.getParameter("bookamount"));
-        String bookLoanVoucherNote = request.getParameter("note");
-        BookLoanVoucher newBookLoanVoucher = new BookLoanVoucher(bookLoanVoucherStatus,borrowerID, bookAmount, bookLoanVoucherNote);
+        String bookLoanVoucherId = request.getParameter("bookLoanVoucherId");
+        String bookLoanVoucherStatus = request.getParameter("bookLoanVoucherStatus");
+        String borrowerID = request.getParameter("borrowerID");
+        int bookAmount = Integer.parseInt(request.getParameter("bookAmount"));
+        String bookLoanVoucherNote = request.getParameter("bookLoanVoucherNote");
+        BookLoanVoucher newBookLoanVoucher = new BookLoanVoucher(bookLoanVoucherId, bookLoanVoucherStatus,borrowerID, bookAmount, bookLoanVoucherNote);
         bookLoanVoucherDAO.insertBookLoanVoucher(newBookLoanVoucher);
         RequestDispatcher dispatcher = request.getRequestDispatcher("bookloanvoucher/create.jsp");
         dispatcher.forward(request, response);
     }
     private void updateBookLoanVoucher(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-        int bookLoanVoucherId = Integer.parseInt(request.getParameter("id"));
-        String bookLoanVoucherStatus = request.getParameter("status");
-        String borrowerID = request.getParameter("borrower_id");
-        int bookAmount = Integer.parseInt(request.getParameter("bookamount"));
-        String bookLoanVoucherNote = request.getParameter("note");
-        BookLoanVoucher bookLoanVoucher = new BookLoanVoucher(bookLoanVoucherId, bookLoanVoucherStatus, borrowerID, bookAmount, bookLoanVoucherNote);
+        String bookLoanVoucherStatus = request.getParameter("bookLoanVoucherStatus");
+        String borrowerID = request.getParameter("borrowerID");
+        String bookLoanVoucherNote = request.getParameter("bookLoanVoucherNote");
+        BookLoanVoucher bookLoanVoucher = new BookLoanVoucher(bookLoanVoucherStatus, borrowerID, bookLoanVoucherNote);
         bookLoanVoucherDAO.updateBookLoanVoucher(bookLoanVoucher);
         RequestDispatcher dispatcher = request.getRequestDispatcher("bookloanvoucher/edit.jsp");
         dispatcher.forward(request, response);
@@ -123,7 +119,7 @@ public class BookLoanVoucherServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         bookLoanVoucherDAO.deleteBookLoanVoucher(id);
         List<BookLoanVoucher> listBookLoanVoucher = bookLoanVoucherDAO.selectAllBookLoanVoucher();
-        request.setAttribute("listBookLoanVoucher", listBookLoanVoucher);
+        request.setAttribute("bookLoanVoucher", listBookLoanVoucher);
         RequestDispatcher dispatcher = request.getRequestDispatcher("bookloanvoucher/list.jsp");
         dispatcher.forward(request, response);
     }
