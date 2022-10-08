@@ -14,14 +14,10 @@ public class Book implements Comparable<Book>{
     protected String bookOrigin;
 
     protected Date extraDate;
-
-<<<<<<< HEAD
-    public Book(int id, String bookLoanVoucherId, String bookLoanVoucherStatus, String borrowerID, int bookAmount, String bookLoanVoucherNote) {
-=======
     protected int days;
 
+
     public Book() {
->>>>>>> trung
     }
 
     public Book(int id,String bookId, String bookName, String bookDescription, String bookImage, String bookStatus, String bookCategoryId, String bookOrigin, Date extraDate) {
