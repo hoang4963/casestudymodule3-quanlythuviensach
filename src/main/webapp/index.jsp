@@ -43,7 +43,7 @@
 <a href="home.jsp">home page</a>
 >>>>>>> trung
 =======
-
+<a href="error-404.jsp">error</a>
 
 >>>>>>> trung
 </body>

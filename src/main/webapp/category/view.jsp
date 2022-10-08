@@ -32,7 +32,7 @@
 <p>
     <a href="/categories" class="btn btn-primary">Back to Category list</a>
 </p>
-<form method="post">
+<form>
     <fieldset>
         <table class="table">
             <tr>
@@ -45,7 +45,7 @@
             </tr>
 
             <tr>
-                <td><a href="/categories?action=edit&id=${category.getId()}" class="btn btn-primary">Edit</a></td>
+                <td><a href="/categories?action=edit&id=${requestScope["category"].getId()}" class="btn btn-primary">Edit</a></td>
                 <td><a href="/categories?action=delete&id=${requestScope["category"].getId()}" class="btn btn-danger">Delete</a></td>
 
                 <%--                <a href="/books?action=delete&id=${book.getId()}">Delete</a>--%>

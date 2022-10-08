@@ -1,5 +1,6 @@
 /* THese are css formats for the modal */
 /* For the modal of menu > Signup*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap);
  #signup{
     text-align: center;
 }
@@ -40,4 +41,144 @@
 .intros .modal-body > p, 
 .intros .modal-body > ul li{
     margin-top: 2.5em;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f6c596;
+    height: 100vh;
+    position: relative;
+}
+
+.body {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.primary-color {
+    color: #FCA737;
+}
+
+.testimonial-view {
+    max-width: 900px;
+    padding: 50px 15px;
+    margin: 0 auto 70px auto;
+    border-radius: 3px;
+}
+
+.testimonial-view.top-margin .testimonial-block_user {
+    margin-top: -60px;
+}
+
+@media (min-width: 900px) {
+    .testimonial-view.top-margin .testimonial-block_user {
+        margin-top: -100px;
+    }
+}
+
+.testimonial-view img.left-quote {
+    opacity: 0.01;
+    width: 20%;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    position: absolute;
+    left: 40%;
+}
+
+@media (min-width: 900px) {
+    .testimonial-view .carousel-control-prev {
+        left: -50px;
+    }
+
+    .testimonial-view .carousel-control-next {
+        right: -50px;
+    }
+
+    .testimonial-view .carousel-control-next-icon,
+    .testimonial-view .carousel-control-prev-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.section-header,
+.testimonial-block_user_info_name {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-header:after,
+.testimonial-block_user_info_name:after {
+    content: "";
+    height: 4px;
+    width: 100px;
+    background-color: #FCA737;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 50px);
+}
+
+.testimonial-block {
+    padding: 15px;
+    margin: 50px 15px;
+    background: #fff;
+    color: #333;
+    -webkit-box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 900px) {
+    .testimonial-block {
+        padding: 50px;
+        margin: 50px;
+    }
+}
+
+.testimonial-block .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    place-items: center;
+}
+
+.testimonial-block .testimonial-block_user {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.testimonial-block .testimonial-block_user .testimonial-block_user_image {
+    position: relative;
+    margin: 0 15px 30px 15px;
+}
+
+.testimonial-block .testimonial-block_user .testimonial-block_user_image img {
+    height: 170px;
+    width: 170px;
+    border: 7px solid #FFDFB8;
+    border-radius: 170px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-block .testimonial-block_user .testimonial-block_user_info .testimonial-block_user_info_name {
+    margin-bottom: 10px;
+}
+
+.testimonial-block .testimonial-block_user .testimonial-block_user_info .testimonial-block_user_info_name:after {
+    width: 50px;
+    left: calc(50% - 25px);
+}
+
+.testimonial-block .testimonial-block_content {
+    text-align: center;
+    font-size: 18px;
+}
+
+.top-margin .testimonial-block .row {
+    place-items: normal;
+}
+.comment {
+    font-size: 16px;
 }

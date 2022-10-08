@@ -16,6 +16,7 @@ public class Book implements Comparable<Book>{
     protected Date extraDate;
     protected int days;
 
+
     public Book() {
     }
     public Book(int id,String bookId, String bookName, String bookDescription, String bookImage, String bookStatus, String bookCategoryId, String bookOrigin, Date extraDate) {
