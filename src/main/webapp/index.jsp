@@ -17,6 +17,7 @@
 <<<<<<< HEAD
 <a href="customers">Customers</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <br>
 <a href="categories"> category test</a>
@@ -46,5 +47,12 @@
 <a href="error-404.jsp">error</a>
 
 >>>>>>> trung
+=======
+<br>
+<a href="home.jsp">Home</a>
+<a href="/user/changePassword.jsp">Đổi mật khẩu</a>
+<br>
+
+>>>>>>> hieu
 </body>
 </html>
