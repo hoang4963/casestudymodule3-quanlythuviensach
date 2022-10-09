@@ -1,6 +1,7 @@
 package servlet.customer;
 
 import DAO.customer.CustomerDAO;
+import connection.ConnectionDB;
 import models.Customer;
 
 import javax.servlet.RequestDispatcher;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
@@ -18,6 +21,7 @@ import java.util.Objects;
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customers")
 public class CustomerServlet extends HttpServlet {
     private CustomerDAO customerDAO;
+
     public void init() {
         customerDAO = new CustomerDAO();
     }
@@ -56,6 +60,7 @@ public class CustomerServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -96,28 +101,56 @@ public class CustomerServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
+
     private void insertCustomer(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         Customer newCustomer;
         String name = request.getParameter("name");
         String customerid = request.getParameter("customerId");
-        String date = request.getParameter("birthday");
         String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String avatar = request.getParameter("avatar");
         String roleid = request.getParameter("roleId");
         String password = request.getParameter("password");
-        if (Objects.equals(date, "")){
-            newCustomer = new Customer(customerid,name,email,phone,avatar,roleid,password);
-        }
-        else {
-            Date birthday = Date.valueOf(date);
-            newCustomer = new Customer(customerid,name,birthday,email,phone,avatar,roleid,password);
-        }
+        newCustomer = new Customer(customerid, name, email, roleid, password);
+
         customerDAO.insertCustomer(newCustomer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/createCustomer.jsp");
+        request.setAttribute("status", "success");
+
         dispatcher.forward(request, response);
+//        String name = request.getParameter("name");
+//        String customerid = request.getParameter("CustomerId");
+//        String email = request.getParameter("email");
+//        String password = request.getParameter("password");
+//        String roleid = request.getParameter("roleId");
+//        RequestDispatcher dispatcher = null;
+//        Connection con = null;
+//        try {
+//            con = ConnectionDB.getConnection();
+//            PreparedStatement pst = con.prepareStatement("insert * from `quanlythuviensach`.`customer`(customerId,name,email,password,role_id) values (?,?,?,?,?)");
+//            pst.setString(1, customerid);
+//            pst.setString(2, name);
+//            pst.setString(3, email);
+//            pst.setString(4, password);
+//            pst.setString(5, roleid);
+//            int rowCount = pst.executeUpdate();
+//            dispatcher = request.getRequestDispatcher("customer/createCustomer.jsp");
+//            if (rowCount > 0) {
+//                request.setAttribute("status", "success");
+//            } else {
+//                request.setAttribute("status", "failed");
+//            }
+//            dispatcher.forward(request,response);
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                con.close();
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
     }
+
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -129,11 +162,12 @@ public class CustomerServlet extends HttpServlet {
         String avatar = request.getParameter("avatar");
         String roleid = request.getParameter("roleId");
         String password = request.getParameter("password");
-        Customer customer = new Customer(id,customerid, name,birthday,email,phone,avatar,roleid,password);
+        Customer customer = new Customer(id, customerid, name, birthday, email, phone, avatar, roleid, password);
         customerDAO.updateCustomer(customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/edit.jsp");
         dispatcher.forward(request, response);
     }
+
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
