@@ -16,17 +16,14 @@
     function hideURLbar() {
         window.scrollTo(0, 1);
     } </script>
-    <!-- fonts -->
     <link href="//fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-    <!-- /fonts -->
-    <!-- css -->
     <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="/css/style.css" rel='stylesheet' type='text/css' media="all"/>
-    <!-- /css -->
 </head>
 <body>
-<input type="hidden" id="status" value="<%= request.getAttribute("status")%>" placeholder="<%=request.getAttribute("status")%>">
+<input type="hidden" id="status" value="<%= request.getAttribute("status")%>"
+       placeholder="<%=request.getAttribute("status")%>">
 <h1 class="w3ls">Đăng Ký</h1>
 <div class="content-w3ls">
     <div class="content-agile1">
@@ -36,7 +33,7 @@
     <div class="content-agile2">
         <form action="/register" method="post">
             <div class="form-control w3layouts">
-                <input type="text" id="firstname" name="firstname" placeholder="First Name"
+                <input type="text" id="firstname" name="" placeholder="First Name"
                        title="Please enter your First Name">
             </div>
 
@@ -68,7 +65,7 @@
                 //empty string means no validation error
             }
         </script>
-        <div >
+        <div>
             <a href="/user/login.jsp" class="signup-image-link"> Quay lại trang đăng nhập</a>
         </div>
 

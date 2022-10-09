@@ -17,6 +17,14 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(String customerId, String customerName, String customerEmail, String customerRoleId, String customerPassword) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.customerRoleId = customerRoleId;
+        this.customerPassword = customerPassword;
+    }
+
     public Customer(String customerId, String customerName, Date customerbirthday, String customerEmail, String customerPhone, String customerAvatar, String customerRoleId, String customerPassword) {
         this.customerId = customerId;
         this.customerName = customerName;
