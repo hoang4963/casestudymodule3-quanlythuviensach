@@ -108,9 +108,9 @@ public class CustomerServlet extends HttpServlet {
         String name = request.getParameter("name");
         String customerid = request.getParameter("customerId");
         String email = request.getParameter("email");
-        String roleid = request.getParameter("roleId");
+        String role_Id = request.getParameter("role_Id");
         String password = request.getParameter("password");
-        newCustomer = new Customer(customerid, name, email, roleid, password);
+        newCustomer = new Customer(customerid, name, email, role_Id, password);
 
         customerDAO.insertCustomer(newCustomer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/createCustomer.jsp");

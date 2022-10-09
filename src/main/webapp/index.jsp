@@ -15,5 +15,10 @@
 <a href="books">book test</a>
 <br>
 <a href="customers">Customers</a>
+<br>
+<a href="home.jsp">Home</a>
+<a href="/user/changePassword.jsp">Đổi mật khẩu</a>
+<br>
+
 </body>
 </html>

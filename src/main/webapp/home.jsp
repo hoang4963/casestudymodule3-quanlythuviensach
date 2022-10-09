@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     if (session.getAttribute("name") == null) {
-        response.sendRedirect("user/login.jsp");
+        response.sendRedirect("login.jsp");
     }
 %>
 <html lang="en">
@@ -54,7 +54,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="${pageContext.servletContext.contextPath}/login.html">Log In</a></li>
+                <li><a href="${pageContext.servletContext.contextPath}/user/login.jsp">Log In</a></li>
                 <li>
                     <a data-toggle="modal" data-target="#signup">Sign Up</a>
                 </li>
