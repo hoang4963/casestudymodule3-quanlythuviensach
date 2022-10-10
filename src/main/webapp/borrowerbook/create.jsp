@@ -9,7 +9,7 @@
 <center>
     <h1>Borrower Book Management</h1>
     <h2>
-        <a href="BorrowerBookServlet?action=create">Add a new BorrowerBook</a>
+        <a href="BorrowerBookServlet?action=list">BorrowerBook List</a>
     </h2>
 </center>
 <div align="center">
