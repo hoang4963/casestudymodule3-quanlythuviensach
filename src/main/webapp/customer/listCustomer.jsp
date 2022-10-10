@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    if (session.getAttribute("name") == null) {
+        response.sendRedirect("user/login.jsp");
+    }
+%>
 <html>
 <head>
-    <title>Customer Management Application</title>
+    <title>GROUPII.VN</title>
     <link type="text/css" rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet"
@@ -50,10 +55,6 @@
     <h2>
         <a href="/customers?action=create">class="btn btn-info"Add New Customer</a>
     </h2>
-<<<<<<< HEAD
-=======
-
->>>>>>> trung
     <h2>List of Customers</h2>
 </center>
 
