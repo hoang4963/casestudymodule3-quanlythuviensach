@@ -77,7 +77,7 @@
 
 </center>
 <div align="center">
-    <table border="1" cellpadding="5" class = "table">
+    <table border="1" cellpadding="5" class="table">
         <tr>
             <th>RoleId</th>
             <th>Name</th>
