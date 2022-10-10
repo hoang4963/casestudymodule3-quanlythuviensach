@@ -9,6 +9,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<<<<<<< HEAD
 <%--<%--%>
 <%--    if (session.getAttribute("name") == null) {--%>
 <%--        response.sendRedirect("user/login.jsp");--%>
@@ -21,6 +22,8 @@
 <%--    }--%>
 <%--%>--%>
 
+=======
+>>>>>>> trung
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
 
 

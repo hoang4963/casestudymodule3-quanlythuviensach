@@ -25,9 +25,13 @@
     <script type='text/javascript' src=''></script>
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+<<<<<<< HEAD
 
     <title>Book Information</title>
 
+=======
+    <title>Book Information</title>
+>>>>>>> trung
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -64,9 +68,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" >
-            <ul class="navbar-nav me-auto, comment" >
+            <ul class="navbar-nav me-auto, comment" style="font-size: 14px">
                 <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
+                <li class="nav-item" style="padding-top: 14px"><a href="#" ></a><%=session.getAttribute("name")%></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
@@ -105,7 +111,6 @@
                             <!-- Modal content-->
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">ARE YOU SURE?</h4>
                                 </div>
 
@@ -117,7 +122,6 @@
 
                         </div>
                     </div>
-
 
                 </td>
             </tr>

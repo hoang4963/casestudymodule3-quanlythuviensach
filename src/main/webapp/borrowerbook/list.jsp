@@ -36,9 +36,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" >
-            <ul class="navbar-nav me-auto, comment" >
+            <ul class="navbar-nav me-auto, comment" style="font-size: 14px">
                 <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
+                <li class="nav-item" style="padding-top: 14px"><a href="#" ></a><%=session.getAttribute("name")%></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
@@ -47,7 +49,7 @@
 <center>
     <h1>Borrower Book Management</h1>
     <h2>
-        <a href="BorrowerBookServlet?action=create">Add a new BorrowerBook</a>
+        <a href="BorrowerBookServlet?action=create" class="btn btn-info">Add a new BorrowerBook</a>
     </h2>
     <h2>List of BorrowerBook</h2>
 </center>
@@ -69,8 +71,27 @@
                 <td><c:out value="${borrowerBook.getLoanDate()}"/></td>
                 <td><c:out value="${borrowerBook.getReturnDate()}"/></td>
                 <td>
-                    <a href="/BorrowerBookServlet?action=edit&id=${borrowerBook.getBorrowerBookId()}">Edit</a>
-                    <a href="/BorrowerBookServlet?action=delete&id=${borrowerBook.getBorrowerBookId()}">Delete</a>
+                    <a href="/BorrowerBookServlet?action=edit&id=${borrowerBook.getBorrowerBookId()}" class="btn btn-info">Edit</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">ARE YOU SURE?</h4>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <a href="/BorrowerBookServlet?action=delete&id=${borrowerBook.getBorrowerBookId()}" type="button" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </td>
             </tr>
         </c:forEach>

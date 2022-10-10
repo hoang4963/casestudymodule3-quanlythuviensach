@@ -1,13 +1,27 @@
 #logo {
-    margin: 0 0;
+    margin: 0;
     float: none;
     width: 50px;
     height: 50px;
 }
+
 body {
     background-color: #f5c8ce;
 }
 img {
     width: 200px;
     height: 200px;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* menu */
+.menu {
+    margin-bottom: 0;
+}
+
+.menu ul li:hover,
+.menu a:hover {
+    font-weight: 600;
 }
