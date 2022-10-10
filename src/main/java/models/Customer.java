@@ -138,4 +138,16 @@ public class Customer {
     public void setCustomerPassword(String customerPassword) {
         this.customerPassword = customerPassword;
     }
+
+
+    public Customer(int id, String customerId, String customerName, Date customerBirthday, String customerEmail, String customerPhone, String customerAvatar, String customerRoleId) {
+        this.id = id;
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.customerBirthday = customerBirthday;
+        this.customerEmail = customerEmail;
+        this.customerPhone = customerPhone;
+        this.customerAvatar = customerAvatar;
+        this.customerRoleId = customerRoleId;
+    }
 }
