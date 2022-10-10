@@ -2,10 +2,7 @@ package servlet.bookloanvoucher;
 
 import DAO.bookloanvoucher.BookLoanVoucherDAO;
 import DAO.borrower.BorrowerDAO;
-import models.Book;
-import models.BookCategory;
-import models.BookLoanVoucher;
-import models.Borrower;
+import models.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -153,13 +150,13 @@ public class BookLoanVoucherServlet extends HttpServlet {
         }
     }
     private void viewBorrowerBook(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Borrower borrower = borrowerDAO.selectBorrower(id);
+        String borrowers = request.getParameter("borrowerID");
+        List<BorrowerInfo> borrowerInfo = bookLoanVoucherDAO.selectBorrowerInfo(borrowers);
         RequestDispatcher dispatcher;
-        if (borrower == null){
+        if (borrowers == null){
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
-            request.setAttribute("borrower",borrower);
+            request.setAttribute("borrowers",borrowerInfo);
             dispatcher = request.getRequestDispatcher("bookloanvoucher/view.jsp");
         }
         dispatcher.forward(request,response);

@@ -51,6 +51,15 @@
         </div>
     </div>
 </nav>
+<%--body--%>
+<div>
+    <a href="customers">Khách hàng</a>
+    <a href="/books">Sách</a>
+    <a href="borrowers">Thông tin người thuê sách</a>
+    <a href="BorrowerBookServlet">Thông tin sách</a>
+    <a href="BookLoanVoucherServlet">Phiếu thuê</a>
+    <a href="categories">Danh mục sách</a>
+</div>
 
 <h3>Trang admin</h3>
 

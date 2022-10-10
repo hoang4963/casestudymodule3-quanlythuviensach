@@ -64,10 +64,10 @@
 </div>
 
 
-<div class="w3footeragile">
-    <p> &copy; 2017 Existing Login Form. All Rights Reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a>
-    </p>
-</div>
+<%--<div class="w3footeragile">--%>
+<%--    <p> &copy; 2017 Existing Login Form. All Rights Reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a>--%>
+<%--    </p>--%>
+<%--</div>--%>
 
 
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>

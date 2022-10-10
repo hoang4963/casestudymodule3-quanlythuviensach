@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--<%--%>
@@ -20,6 +21,9 @@
 <%--        response.sendRedirect("login.jsp");--%>
 <%--    }--%>
 <%--%>--%>
+=======
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+>>>>>>> 4c0efc46412a4ec715b6f8de03c187379d08472f
 
 <html lang="en">
 
@@ -66,8 +70,9 @@
             <ul class="navbar-nav me-auto, comment" >
                 <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/login.html">Log In</a></li>
-                <%--                <li>--%>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/user/login.jsp">Log In</a></li>
+
+            <%--                <li>--%>
                 <%--                    <a data-toggle="modal" data-target="#signup">Sign Up</a>--%>
                 <%--                </li>--%>
             </ul>
@@ -229,7 +234,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">GOOD BOOK to You</h4>
+                <h4 class="modal-title">COACH</h4>
             </div>
             <div class="modal-body">
                 <div class="img-wrap">
@@ -237,9 +242,7 @@
                          alt="brief-history-of-time" srcset="">
                     <p></p>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Nostrum accusamus nulla praesentium a velit,
-                    nesciunt laudantium excepturi quae assumenda natus dolorem ad?</p>
+                <p></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

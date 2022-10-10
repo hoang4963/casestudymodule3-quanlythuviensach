@@ -10,6 +10,7 @@
 
 <html>
 <head>
+<<<<<<< HEAD
     <title>Category Information</title>
     <link type="text/css" rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,8 +25,14 @@
     <script type='text/javascript' src=''></script>
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+=======
+    <title>Book Information</title>
+>>>>>>> 4c0efc46412a4ec715b6f8de03c187379d08472f
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body,table {
             text-align: center;
@@ -67,8 +74,9 @@
 </nav>
 <h1>Category Information</h1>
 <p>
-    <a href="/categories" class="btn btn-primary">Back to Category list</a>
+    <a href="/categories" class="btn btn-primary">Back to Book list</a>
 </p>
+<div class="container">
 <form>
     <fieldset>
         <table class="table">
@@ -77,21 +85,51 @@
                 <td>${requestScope["category"].getBookCategoryId()}</td>
             </tr>
             <tr>
-                <td>Name: </td>
+                <td>Category Name: </td>
                 <td>${requestScope["category"].getBookCategoryName()}</td>
             </tr>
 
             <tr>
-                <td><a href="/categories?action=edit&id=${requestScope["category"].getId()}" class="btn btn-primary">Edit</a></td>
-                <td><a href="/categories?action=delete&id=${requestScope["category"].getId()}" class="btn btn-danger">Delete</a></td>
+                <td><a href="/categories?action=edit&id=${requestScope["category"].getId()}" class="btn btn-info">Edit</a></td>
+                <%--                <td><input type="submit" value="delete" class="btn btn-danger"></td>--%>
 
-                <%--                <a href="/books?action=delete&id=${book.getId()}">Delete</a>--%>
+                <%--                <td><a href="/categories?action=delete&id=${requestScope["category"].getId()}" class="btn btn-danger">Delete</a></td>--%>
+                <td>
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
 
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">ARE YOU SURE?</h4>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <a href="/categories?action=delete&id=${requestScope["category"].getId()}" type="button" class="btn btn-default">Delete</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </td>
             </tr>
+
         </table>
     </fieldset>
 </form>
+<<<<<<< HEAD
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+=======
+</div>
+>>>>>>> 4c0efc46412a4ec715b6f8de03c187379d08472f
 </body>
 </html>

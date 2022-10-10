@@ -11,7 +11,11 @@
 <head>
     <title>Book Information</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         body,table {
             text-align: center;
@@ -33,7 +37,7 @@
 </p>
 <form>
     <fieldset>
-        <table class="table">
+        <table class="">
             <tr>
                 <td>Name: </td>
                 <td>${requestScope["book"].getBookId()}</td>
@@ -69,7 +73,32 @@
 
             <tr>
                 <td><a href="/books?action=edit&id=${requestScope["book"].getId()}" class="btn btn-primary">Edit</a></td>
-                <td><a href="/book?action=delete&id=${requestScope["book"].getId()}" class="btn btn-danger">Delete</a></td>
+                <td><div class="container">
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">ARE YOU SURE?</h4>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <a href="/categories?action=delete&id=${requestScope["category"].getId()}" type="button" class="btn btn-default">Delete</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </td>
             </tr>
         </table>
     </fieldset>

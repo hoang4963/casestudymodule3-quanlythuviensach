@@ -50,7 +50,11 @@
     <a href="/borrowers?action=create">Add New Borrower</a>
   </h2>
 </center>
+<<<<<<< HEAD
 <h2>List of Borrowers</h2>
+=======
+
+>>>>>>> 4c0efc46412a4ec715b6f8de03c187379d08472f
 <div align="center">
   <table border="1" cellpadding="5" class = "table">
 

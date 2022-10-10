@@ -12,19 +12,6 @@ CREATE TABLE `quanlythuviensach`.`role`
     PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `quanlythuviensach`.`accounts`
-(
-    `id`        INT          NOT NULL AUTO_INCREMENT,
-    `accountId` VARCHAR(15) NULL,
-    `name`      VARCHAR(45)  not NULL,
-    `password`  VARCHAR(45)  not NULL,
-    `email`     varchar(255) not null unique,
-    `role_id`   VARCHAR(15) null,
-    PRIMARY KEY (`id`),
-    UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-    foreign key (`role_id`) references `quanlythuviensach`.`role` (`roleId`)
-);
-
 
 CREATE TABLE `quanlythuviensach`.`bookcategory`
 (
@@ -37,19 +24,21 @@ CREATE TABLE `quanlythuviensach`.`bookcategory`
 
 CREATE TABLE `quanlythuviensach`.`customer`
 (
-    `id`         INT          NOT NULL AUTO_INCREMENT,
-    `customerId` VARCHAR(15)  not NULL UNIQUE,
-    `name`       VARCHAR(100) not NULL,
-    `birthday`   date NULL,
-    `email`      VARCHAR(100) NOT NULL,
-    `phone`      INT          NOT NULL,
-    `avatar`     VARCHAR(255) NULL,
-    `role_id`    VARCHAR(15)  not NULL,
+    `id`            INT          NOT NULL AUTO_INCREMENT,
+    `customerId`    VARCHAR(15)  not NULL UNIQUE,
+    `name`          VARCHAR(100) NULL,
+    `birthday`      date NULL,
+    `email`         VARCHAR(100) NOT NULL UNIQUE,
+    `phone`         VARCHAR(11) NULL,
+    `avatar`        VARCHAR(255) NULL,
+    `password`      VARCHAR(45)  not NULL,
+    `role_id`       VARCHAR(15)  not NULL,
+    `delete_status` boolean default 0,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
     UNIQUE INDEX `phone_UNIQUE` (`phone` ASC) VISIBLE,
-    INDEX        `role_id_idx` (`role_id` ASC) VISIBLE,
+    INDEX           `role_id_idx` (`role_id` ASC) VISIBLE,
     CONSTRAINT `role_id`
         FOREIGN KEY (`role_id`)
             REFERENCES `quanlythuviensach`.`role` (`roleId`)
@@ -83,8 +72,9 @@ CREATE TABLE `quanlythuviensach`.`book`
     `description` VARCHAR(255) NULL,
     `image`       VARCHAR(255) NULL,
     `status`      VARCHAR(10) NULL,
-    `category_id` VARCHAR(15)  not NULL,
+    `category_id` VARCHAR(15) NULL,
     `origin`      VARCHAR(100) NULL,
+    `extraDate`   date NULL,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
     INDEX         `category_id_idx` (`category_id` ASC) VISIBLE,
@@ -101,7 +91,7 @@ CREATE TABLE `quanlythuviensach`.`bookloanvoucher`
     `loanvoucherId` VARCHAR(15) NULL UNIQUE,
     `status`        VARCHAR(45) NULL,
     `borrower_id`   VARCHAR(15) not NULL,
-    `bookamount`    int         not null,
+    `bookamount`    int null,
     `note`          varchar(255) null,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
@@ -123,3 +113,21 @@ create table borrowedbook
     foreign key (voucher_id) references bookloanvoucher (loanvoucherid),
     foreign key (book_id) references book (bookid)
 );
+use quanlythuviensach;
+create view booktoday as select *, to_days(extraDate) as days from book;
+
+create view borrower_info as
+select loanvoucherId,
+       borrower_id,
+       borrower.name as borrowerName,
+       book.name     as bookName,
+       bookamount,
+       loandate,
+       returndate
+from bookloanvoucher
+         join borrower
+              on bookloanvoucher.borrower_id = borrower.borrowerId
+         join borrowedbook
+              on bookloanvoucher.loanvoucherId = borrowedbook.voucher_id
+         join book
+              on book.bookId = borrowedbook.book_id;
