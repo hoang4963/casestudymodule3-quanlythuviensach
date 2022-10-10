@@ -36,9 +36,11 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" >
-      <ul class="navbar-nav me-auto, comment" >
+      <ul class="navbar-nav me-auto, comment" style="font-size: 14px">
         <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
+        <li class="nav-item" style="padding-top: 14px"><a href="#" ></a><%=session.getAttribute("name")%></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->

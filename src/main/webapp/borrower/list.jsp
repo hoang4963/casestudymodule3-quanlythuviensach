@@ -4,7 +4,7 @@
 <html>
 <head>
   <title>Borrower Management Application</title>
-  <title>Customer Management Application</title>
+
   <link type="text/css" rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link type="text/css" rel="stylesheet"
@@ -18,6 +18,7 @@
   <script type='text/javascript' src=''></script>
   <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
   <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top menu" role="navigation">
@@ -39,6 +40,8 @@
       <ul class="navbar-nav me-auto, comment" >
         <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
+        <li class="nav-item"><a href="#"></a><%=session.getAttribute("name")%></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
@@ -50,11 +53,8 @@
     <a href="/borrowers?action=create">Add New Borrower</a>
   </h2>
 </center>
-<<<<<<< HEAD
 <h2>List of Borrowers</h2>
-=======
 
->>>>>>> 4c0efc46412a4ec715b6f8de03c187379d08472f
 <div align="center">
   <table border="1" cellpadding="5" class = "table">
 
@@ -81,8 +81,27 @@
         <td><c:out value="${borrower.getBorrowerAddress()}"/></td>
         <td><c:out value="${borrower.getCustomerId()}"/></td>
         <td>
-          <a href="/borrowers?action=edit&id=${borrower.getId()}">Edit</a>
-          <a href="/borrowers?action=delete&id=${borrower.getId()}">Delete</a>
+          <a href="/borrowers?action=edit&id=${borrower.getId()}" class="btn btn-info">Edit</a>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">ARE YOU SURE?</h4>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <a href="/borrowers?action=delete&id=${borrower.getId()}" type="button" class="btn btn-danger">Delete</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </td>
       </tr>
     </c:forEach>

@@ -36,9 +36,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" >
-            <ul class="navbar-nav me-auto, comment" >
+            <ul class="navbar-nav me-auto, comment" style="font-size: 14px">
                 <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
+                <li class="nav-item" style="padding-top: 14px"><a href="#" ></a><%=session.getAttribute("name")%></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
@@ -50,9 +52,10 @@
         <a href="/BookLoanVoucherServlet?action=create">Add New Book Loan Voucher</a>
     </h2>
 </center>
+<h2>List of Book Loan Voucher</h2>
 <div align="center">
     <table border="1" cellpadding="5" class = "table">
-        <caption><h2>List of Book Loan Voucher</h2></caption>
+
         <tr>
             <form action="/BookLoanVoucherServlet" method="get">
                 <input name="searchByBookLoanVouchers"  type="text" placeholder="Type Book Loan Voucher Id">
@@ -61,11 +64,14 @@
             </form>
         </tr>
         <tr>
+            <thead class="thead-light">
             <th>BookLoanVoucherId</th>
             <th>Status</th>
             <th>BorrowerID</th>
             <th>BookAmount</th>
             <th>Note</th>
+            <th></th>
+            </thead>
         </tr>
         <c:forEach var="bookLoanVoucher" items="${bookLoanVoucher}">
             <tr>
@@ -75,8 +81,28 @@
                 <td><c:out value="${bookLoanVoucher.getBookAmount()}"/></td>
                 <td><c:out value="${bookLoanVoucher.getBookLoanVoucherNote()}"/></td>
                 <td>
-                    <a href="/BookLoanVoucherServlet?action=edit&id=${bookLoanVoucher.getId()}">Edit</a>
-                    <a href="/BookLoanVoucherServlet?action=delete&id=${bookLoanVoucher.getId()}">Delete</a>
+                    <a href="/BookLoanVoucherServlet?action=edit&id=${bookLoanVoucher.getId()}" class="btn btn-info">Edit</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">ARE YOU SURE?</h4>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <a href="/BookLoanVoucherServlet?action=delete&id=${bookLoanVoucher.getId()}" type="button" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </td>
             </tr>
         </c:forEach>

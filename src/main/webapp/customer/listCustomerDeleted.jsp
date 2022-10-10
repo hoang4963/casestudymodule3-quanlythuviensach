@@ -35,9 +35,11 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" >
-      <ul class="navbar-nav me-auto, comment" >
+      <ul class="navbar-nav me-auto, comment" style="font-size: 14px">
         <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
+        <li class="nav-item" style="padding-top: 14px"><a href="#" ></a><%=session.getAttribute("name")%></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
@@ -73,7 +75,26 @@
         <td><c:out value="${customer.getCustomerRoleId()}"/></td>
         <td>
           <a href="/customers?action=restore&id=${customer.getId()}">Restore</a>
-          <a href="/customers?action=deleteForever&id=${customer.getId()}">Delete</a>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">ARE YOU SURE?</h4>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <a href="/customers?action=deleteForever&id=${customer.getId()}" type="button" class="btn btn-danger">Delete</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </td>
       </tr>
     </c:forEach>

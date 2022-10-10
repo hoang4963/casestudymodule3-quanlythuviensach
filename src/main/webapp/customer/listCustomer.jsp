@@ -35,9 +35,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" >
-            <ul class="navbar-nav me-auto, comment" >
+            <ul class="navbar-nav me-auto, comment" style="font-size: 14px">
                 <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
+                <li class="nav-item" style="padding-top: 14px"><a href="#" ></a><%=session.getAttribute("name")%></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
@@ -46,15 +48,15 @@
 <center>
     <h1>Customer Management</h1>
     <h2>
-        <a href="/customers?action=create">Add New Customer</a>
+        <a href="/customers?action=create">class="btn btn-info"Add New Customer</a>
     </h2>
-    <h2>
-        <a href="/customers?action=listDeleted">List Customers Deleted</a>
-    </h2>
+
+    <h2>List of Customers</h2>
 </center>
+
 <div align="center">
     <table border="1" cellpadding="5" class = "table">
-        <caption><h2>List of Customers</h2></caption>
+
         <tr>
             <form action="/customers" method="get">
                 <input name="searchByName"  type="text" placeholder="Type something to search">
@@ -82,13 +84,36 @@
                 <td><img class="avatar" src="<c:out value="${customer.getCustomerAvatar()}"/>"></td>
                 <td><c:out value="${customer.getCustomerRoleId()}"/></td>
                 <td>
-                    <a href="/customers?action=edit&id=${customer.getId()}">Edit</a>
-                    <a href="/customers?action=delete&id=${customer.getId()}">Delete</a>
+                    <a href="/customers?action=edit&id=${customer.getId()}" class="btn btn-info">Edit</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">ARE YOU SURE?</h4>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <a href="/customers?action=delete&id=${customer.getId()}" type="button" class="btn btn-danger">Delete</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </td>
             </tr>
         </c:forEach>
     </table>
 </div>
+<h2>
+    <a href="/customers?action=listDeleted">List Customers Deleted</a>
+</h2>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
