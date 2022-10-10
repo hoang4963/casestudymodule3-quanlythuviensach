@@ -123,3 +123,12 @@ create table borrowedbook
     foreign key (voucher_id) references bookloanvoucher (loanvoucherid),
     foreign key (book_id) references book (bookid)
 );
+create view borrower_info as
+select loanvoucherId, borrower_id, borrower.name as borrowerName, book.name as bookName, bookamount, loandate, returndate
+from bookloanvoucher
+         join borrower
+              on bookloanvoucher.borrower_id = borrower.borrowerId
+         join borrowedbook
+              on bookloanvoucher.loanvoucherId = borrowedbook.voucher_id
+         join book
+              on book.bookId = borrowedbook.book_id;
