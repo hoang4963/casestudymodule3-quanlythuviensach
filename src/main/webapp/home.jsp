@@ -35,7 +35,6 @@
 </head>
 
 <body >
-
 <%--<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation" style="background-color: white">--%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top menu" role="navigation">
     <div class="container-fluid">
@@ -359,7 +358,7 @@
         </ul>
     </div>
 </div>
-
+aaa
 <script src="${pageContext.servletContext.contextPath}/js-for-homepage/main.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
