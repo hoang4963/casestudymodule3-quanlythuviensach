@@ -106,11 +106,11 @@ public class CustomerServlet extends HttpServlet {
             throws SQLException, IOException, ServletException {
         Customer newCustomer;
         String name = request.getParameter("name");
-        String customerid = request.getParameter("customerId");
+        String customerId = request.getParameter("customerId");
         String email = request.getParameter("email");
         String role_Id = request.getParameter("role_Id");
         String password = request.getParameter("password");
-        newCustomer = new Customer(customerid, name, email, role_Id, password);
+        newCustomer = new Customer(customerId, name, email, role_Id, password);
 
         customerDAO.insertCustomer(newCustomer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/createCustomer.jsp");
@@ -149,6 +149,7 @@ public class CustomerServlet extends HttpServlet {
 //                throw new RuntimeException(e);
 //            }
 //        }
+//
     }
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response)
