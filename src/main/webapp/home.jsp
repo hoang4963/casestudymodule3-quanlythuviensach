@@ -9,6 +9,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<<<<<<< HEAD
 
 <%--<%--%>
 <%--    if (session.getAttribute("name") == null) {--%>
@@ -26,6 +27,8 @@
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+=======
+>>>>>>> hieu
 <html lang="en">
 
 <head>
