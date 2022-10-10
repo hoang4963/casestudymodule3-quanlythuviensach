@@ -1,6 +1,7 @@
 package servlet.user;
 
 import connection.ConnectionDB;
+import models.Customer;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -30,18 +31,24 @@ public class LoginServlet extends HttpServlet {
             pst.setString(1, email);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
-//jfqw
 //            Filter servlet
+//            String name = rs.getString("name");
+//            Customer customer = new Customer(name,email,password);
+
+
             if (rs.next()) {
                 System.out.println(rs.getString("role_id"));
                 String i = rs.getString("role_id");
+
                 if (Objects.equals(i, "R01")) {
 
                     session.setAttribute("name", rs.getString("name"));
                     dispatcher = request.getRequestDispatcher("role/admin.jsp");
                     dispatcher.forward(request, response);
                 } else if (Objects.equals(i, "R02")) {
+
                     session.setAttribute("name", rs.getString("name"));
+
                     dispatcher = request.getRequestDispatcher("role/customer.jsp");
                     dispatcher.forward(request, response);
 

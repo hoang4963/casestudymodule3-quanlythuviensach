@@ -69,10 +69,11 @@
 </nav>
 <h1>Delete Category Sucess!!!</h1>
 <p>
-    <a href="/categories" class="btn btn-danger btn-lg">Back to customer list</a>
+    <a href="/categories" class="btn btn-danger btn-lg" >Back to customer list</a>
 </p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>
 
