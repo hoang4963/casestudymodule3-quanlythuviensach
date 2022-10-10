@@ -113,6 +113,9 @@ create table borrowedbook
     foreign key (voucher_id) references bookloanvoucher (loanvoucherid),
     foreign key (book_id) references book (bookid)
 );
+use quanlythuviensach;
+create view booktoday as select *, to_days(extraDate) as days from book;
+
 create view borrower_info as
 select loanvoucherId,
        borrower_id,

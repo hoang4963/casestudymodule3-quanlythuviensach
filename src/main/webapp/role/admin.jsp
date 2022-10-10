@@ -53,12 +53,12 @@
 </nav>
 <%--body--%>
 <div>
-    <a href="/customer/listCustomer.jsp">Khách hàng</a>
-    <a href="/book/list.jsp">Sách</a>
-    <a href="/borrower/list.jsp">Thông tin người thuê sách</a>
-    <a href="/borrowerbook/list.jsp">Thông tin sách</a>
-    <a href="/bookloanvoucher/list.jsp">Phiếu thuê</a>
-    <a href="/category/list.jsp">Danh mục sách</a>
+    <a href="customers">Khách hàng</a>
+    <a href="/books">Sách</a>
+    <a href="borrowers">Thông tin người thuê sách</a>
+    <a href="BorrowerBookServlet">Thông tin sách</a>
+    <a href="BookLoanVoucherServlet">Phiếu thuê</a>
+    <a href="categories">Danh mục sách</a>
 </div>
 
 <h3>Trang admin</h3>
