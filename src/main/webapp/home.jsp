@@ -39,32 +39,35 @@
 <body >
 <%--<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation" style="background-color: white">--%>
 
-<nav class="navbar navbar-default navbar-fixed-top menu" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top menu" role="navigation">
+    <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+        <a class="navbar-brand" style="margin: 0; float: none;" href="#"><img src="images/Screenshot (98).png" id="logo"></a>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li>
+                    <a class="navbar-brand , comment" href="#" style="font-style: oblique">LIBRARIES OF GROUP II</a>
+                </li>
+            </ul>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="${pageContext.servletContext.contextPath}/login.html">Log In</a></li>
-                <li>
-                    <a data-toggle="modal" data-target="#signup">Sign Up</a>
-                </li>
+        <div class="collapse navbar-collapse" >
+            <ul class="navbar-nav me-auto, comment" >
+                <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/login.html">Log In</a></li>
+                <%--                <li>--%>
+                <%--                    <a data-toggle="modal" data-target="#signup">Sign Up</a>--%>
+                <%--                </li>--%>
             </ul>
 
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
+
 
 <div class="container-fluid banner" id="">
     <div class="row row-of-banner">
