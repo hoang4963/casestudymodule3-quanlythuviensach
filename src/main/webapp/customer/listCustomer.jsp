@@ -11,6 +11,9 @@
     <h2>
         <a href="/customers?action=create">Add New Customer</a>
     </h2>
+    <h2>
+        <a href="/customers?action=listDeleted">List Customers Deleted</a>
+    </h2>
 </center>
 <div align="center">
     <table border="1" cellpadding="5">

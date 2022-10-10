@@ -1,8 +1,6 @@
 package servlet.customer;
 
 import DAO.customer.CustomerDAO;
-import models.Borrower;
-import connection.ConnectionDB;
 import models.Customer;
 
 import javax.servlet.RequestDispatcher;
@@ -12,12 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Objects;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customers")
 public class CustomerServlet extends HttpServlet {
@@ -44,8 +39,17 @@ public class CustomerServlet extends HttpServlet {
                 case "delete":
                     deleteCustomer(request, response);
                     break;
+                case "deleteForever":
+                    deleteCustomerForever(request, response);
+                    break;
                 case "searchByName":
                     searchByName(request,response);
+                    break;
+                case "listDeleted":
+                    listCustomerDeleted(request,response);
+                    break;
+                case "restore":
+                    restoreCustomer(request,response);
                     break;
                 default:
                     listCustomer(request, response);
@@ -53,6 +57,23 @@ public class CustomerServlet extends HttpServlet {
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
+        }
+    }
+
+    private void restoreCustomer(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            customerDAO.restoreCustomer(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        List<Customer> listCustomer = customerDAO.selectAllCustomersDelete();
+        request.setAttribute("listCustomer", listCustomer);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/listCustomerDeleted.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -64,9 +85,7 @@ public class CustomerServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/search.jsp");
         try {
             dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -163,5 +182,25 @@ public class CustomerServlet extends HttpServlet {
         request.setAttribute("listCustomer", listCustomer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/listCustomer.jsp");
         dispatcher.forward(request, response);
+    }
+    private void deleteCustomerForever(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        customerDAO.deleteCustomerForever(id);
+        List<Customer> listCustomer = customerDAO.selectAllCustomersDelete();
+        request.setAttribute("listCustomer", listCustomer);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/listCustomerDeleted.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void listCustomerDeleted(HttpServletRequest request, HttpServletResponse response) {
+        List<Customer> listCustomer = customerDAO.selectAllCustomersDelete();
+        request.setAttribute("listCustomer", listCustomer);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/listCustomerDeleted.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

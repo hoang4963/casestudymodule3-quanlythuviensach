@@ -18,4 +18,10 @@ public interface ICustomerDAO {
     public boolean updateCustomer(Customer customer) throws SQLException;
 
     public List<Customer> searchByName(String name);
+
+    public List<Customer> selectAllCustomersDelete();
+
+    public boolean deleteCustomerForever(int id) throws SQLException;
+
+    public boolean restoreCustomer(int id) throws SQLException;
 }
