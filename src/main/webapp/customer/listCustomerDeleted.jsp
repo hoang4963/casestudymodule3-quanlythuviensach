@@ -35,7 +35,7 @@
         <td><img class="avatar" src="<c:out value="${customer.getCustomerAvatar()}"/>"></td>
         <td><c:out value="${customer.getCustomerRoleId()}"/></td>
         <td>
-          <a href="/customers?action=restore&id=${customer.getId()}">Edit</a>
+          <a href="/customers?action=restore&id=${customer.getId()}">Restore</a>
           <a href="/customers?action=deleteForever&id=${customer.getId()}">Delete</a>
         </td>
       </tr>
