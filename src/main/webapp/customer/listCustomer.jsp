@@ -55,10 +55,7 @@
     <h2>
         <a href="/customers?action=create"class="btn btn-info">Add New Customer</a>
     </h2>
-<<<<<<< HEAD
 
-=======
->>>>>>> hieu
     <h2>List of Customers</h2>
 </center>
 
