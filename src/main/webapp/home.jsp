@@ -121,14 +121,14 @@
                                             <img src="images/avatar/quan.jpg" alt="User">
                                         </div>
                                         <div class="testimonial-block_user_info">
-                                            <h2 class="testimonial-block_user_info_name">Quan K</h2>
+                                            <h2 class="testimonial-block_user_info_name">Quân</h2>
                                             <h4>Leader</h4>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="testimonial-block_content">
-                                        <p>Say:</p>
+                                        <p>" Hi vọng mọi người sẽ có những trải nghiệm thú vị khi ghé qua thư viện sách này. Đặc biệt là từ những người không thích đọc sách" </p>
                                     </div>
                                 </div>
                             </div>
