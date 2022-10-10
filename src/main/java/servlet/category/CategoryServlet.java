@@ -103,15 +103,23 @@ public class CategoryServlet extends HttpServlet {
                     updateCategory(request, response);
                     break;
 
-//                case "searchBy" :
-//                    searchByCountry(request, response);
-//                    break;
+                case "searchBy" :
+                    searchByID(request, response);
+                    break;
                 default:
                     listCategory(request, response);
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void searchByID(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {
+        String categoryID = request.getParameter("search");
+        List<BookCategory> categories = categoryDao.searchByCategoryID(categoryID);
+        request.setAttribute("listCategories", categories);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("category/list.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     private void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws SQLException,IOException,ServletException {

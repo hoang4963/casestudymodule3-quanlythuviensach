@@ -15,5 +15,7 @@ public interface ICategoryDAO {
     public  boolean deleteCategory(int id) throws SQLException;
 
     public boolean updateCategory(BookCategory bookCategory) throws SQLException;
+    public List<BookCategory> searchByCategoryID(String categoryID);
 
 }
+

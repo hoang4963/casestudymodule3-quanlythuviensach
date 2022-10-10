@@ -17,7 +17,7 @@ public class CategoryDAO implements ICategoryDAO {
     private static final String SELECT_ALL_CATEGORYS = "select * from bookcategory";
     private static final String DELETE_CATEGORY_SQL ="delete from bookcategory where id = ?";
     private static final String UPDATE_CATEGORY_SQL = "update bookcategory set categoryId = ?,name = ? where id = ?";
-
+    private static final String SELECT_BY_ID = "select * from bookcategory where categoryID = ?";
     private static final String CHECK_ID_CATEGORY_HAS_BOOK = "select bookcategory.id from bookcategory inner join book where categoryId = book.category_id group by categoryId;";
     public CategoryDAO() {
     }
@@ -150,5 +150,25 @@ public class CategoryDAO implements ICategoryDAO {
                 }
             }
         }
+    }
+
+    @Override
+    public List<BookCategory> searchByCategoryID(String categoryID) {
+        List<BookCategory> categories = new ArrayList<>();
+        Connection conn = ConnectionDB.getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement(SELECT_BY_ID);
+            ps.setString(1, categoryID);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String categoryId =  rs.getString("categoryId");
+                String name = rs.getString("name");
+                categories.add(new BookCategory(id,categoryId,name));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return categories;
     }
 }
