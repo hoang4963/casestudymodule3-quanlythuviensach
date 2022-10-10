@@ -158,7 +158,7 @@
                                         </div>
                                         <div class="testimonial-block_user_info">
                                             <h2 class="testimonial-block_user_info_name">Trung</h2>
-                                            <h4>Customer</h4>
+                                            <h4>Member</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -180,7 +180,7 @@
                                         </div>
                                         <div class="testimonial-block_user_info">
                                             <h2 class="testimonial-block_user_info_name">Hiếu</h2>
-                                            <h4>Customer</h4>
+                                            <h4>Member</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -202,7 +202,7 @@
                                         </div>
                                         <div class="testimonial-block_user_info">
                                             <h2 class="testimonial-block_user_info_name">Hoàng</h2>
-                                            <h4>Customer</h4>
+                                            <h4>Member</h4>
                                         </div>
                                     </div>
                                 </div>
