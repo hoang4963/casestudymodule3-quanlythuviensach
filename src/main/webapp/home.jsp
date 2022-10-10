@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     if (session.getAttribute("name") == null) {
@@ -13,6 +14,22 @@
     }
 %>
 
+=======
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<<<<<<< HEAD
+<%--<%--%>
+<%--    if (session.getAttribute("name") == null) {--%>
+<%--        response.sendRedirect("user/login.jsp");--%>
+<%--    }--%>
+<%--%>--%>
+=======
+<%--<%--%>
+<%--    if (session.getAttribute("name") == null) {--%>
+<%--        response.sendRedirect("login.jsp");--%>
+<%--    }--%>
+<%--%>--%>
+>>>>>>> hieu
+>>>>>>> hoang
 <html lang="en">
 
 <head>

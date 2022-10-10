@@ -180,10 +180,9 @@ public class CustomerServlet extends HttpServlet {
         String phone = request.getParameter("phone");
         String avatar = request.getParameter("avatar");
         String roleid = request.getParameter("roleId");
-        String password = request.getParameter("password");
-        Customer customer = new Customer(id, customerid, name, birthday, email, phone, avatar, roleid, password);
+        Customer customer = new Customer(id, customerid, name, birthday, email, phone, avatar, roleid);
         customerDAO.updateCustomer(customer);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/editCustomer.jsp");
         dispatcher.forward(request, response);
     }
 
