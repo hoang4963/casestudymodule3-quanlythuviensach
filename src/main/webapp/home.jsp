@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     if (session.getAttribute("name") == null) {
@@ -30,6 +31,9 @@
 <%--%>--%>
 >>>>>>> hieu
 >>>>>>> hoang
+=======
+
+>>>>>>> hieu
 <html lang="en">
 
 <head>

@@ -27,9 +27,25 @@
     </style>
 </head>
 <body>
+<<<<<<< HEAD
 <h1>Delete Book Sucess!!!!</h1>
+=======
+<input type="hidden" id="status" value="<%= request.getAttribute("status")%>">
+
+<h1>Delete product Sucess!!!!</h1>
+>>>>>>> hieu
 <p>
     <a href="/books" class="btn btn-danger btn-lg">Back to Book list</a>
 </p>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="alert/dist/sweetalert.css">
+<script type="text/javascript">
+    const status = document.getElementById("status").value;
+    if (status == "failed") {
+        swal("Xin lỗi", "Bạn vui lòng nhập lại tài khoản hoặc mật khẩu", "error")
+    }
+</script>
 </body>
 </html>
