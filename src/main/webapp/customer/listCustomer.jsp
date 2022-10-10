@@ -28,7 +28,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a class="navbar-brand , comment" href="#" style="font-style: oblique">LIBRARIES OF GROUP II</a>
+                    <a class="navbar-brand , comment" href="role/customer.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
                 </li>
             </ul>
         </div>
@@ -48,12 +48,9 @@
 <center>
     <h1>Customer Management</h1>
     <h2>
-        <a href="/customers?action=create">class="btn btn-info"Add New Customer</a>
+        <a href="/customers?action=create"class="btn btn-info">Add New Customer</a>
     </h2>
-<<<<<<< HEAD
-=======
 
->>>>>>> trung
     <h2>List of Customers</h2>
 </center>
 

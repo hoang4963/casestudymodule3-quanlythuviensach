@@ -43,7 +43,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a class="navbar-brand , comment" href="#" style="font-style: oblique">LIBRARIES OF GROUP II</a>
+                    <a class="navbar-brand , comment" href="role/customer.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
                 </li>
             </ul>
         </div>
@@ -72,9 +72,6 @@
 <div align="center">
     <form method="post" >
         <table border="1" cellpadding="5" class = "table">
-            <caption>
-                <h2>Add New Role</h2>
-            </caption>
             <tr>
                 <th>Customer ID:</th>
                 <td>
