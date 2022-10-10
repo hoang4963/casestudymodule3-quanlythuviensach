@@ -217,7 +217,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">GOOD BOOK to You</h4>
+                <h4 class="modal-title">COACH</h4>
             </div>
             <div class="modal-body">
                 <div class="img-wrap">
@@ -225,9 +225,7 @@
                          alt="brief-history-of-time" srcset="">
                     <p></p>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Nostrum accusamus nulla praesentium a velit,
-                    nesciunt laudantium excepturi quae assumenda natus dolorem ad?</p>
+                <p></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
