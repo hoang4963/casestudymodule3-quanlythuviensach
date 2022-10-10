@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         try {
             con = ConnectionDB.getConnection();
 
-            PreparedStatement pst = con.prepareStatement("select * from `quanlythuviensach`.`customer` where email = ? and password = ?");
+            PreparedStatement pst = con.prepareStatement("select * from `quanlythuviensach`.`customer` where email = ? and password = ? ");
             pst.setString(1, email);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
