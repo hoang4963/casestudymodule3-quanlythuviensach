@@ -36,11 +36,11 @@
 </head>
 
 <body >
-<%--<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation" style="background-color: white">--%>
+
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top menu" role="navigation">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
+
         <a class="navbar-brand" style="margin: 0; float: none;" href="#"><img src="images/logotron.png" id="logo"></a>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -52,16 +52,12 @@
             </ul>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" >
             <ul class="navbar-nav me-auto, comment" >
                 <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/user/login.jsp">Log In</a></li>
 
-            <%--                <li>--%>
-                <%--                    <a data-toggle="modal" data-target="#signup">Sign Up</a>--%>
-                <%--                </li>--%>
             </ul>
 
         </div><!-- /.navbar-collapse -->
@@ -77,32 +73,7 @@
 </div>
 
 
-<!-- Modal FOr SIGN UP-->
-<%--<div id="signup" class="modal fade" role="dialog">--%>
-<%--    <div class="modal-dialog">--%>
-<%--        <!-- Modal content-->--%>
-<%--        <div class="modal-content">--%>
-<%--            <div class="modal-header">--%>
-<%--                <button type="button" class="close" data-dismiss="modal">&times;</button>--%>
-<%--                <h3 class="modal-title">Welcome to our Library</h3>--%>
-<%--            </div>--%>
-<%--            <div class="modal-body">--%>
-<%--                <div class="img-wrap">--%>
-<%--                    <img src="${pageContext.servletContext.contextPath}images/intro-bg.jpg" alt="" srcset="">--%>
-<%--                    <p></p>--%>
-<%--                </div>--%>
-<%--                <p>To SIGN UP: Please send an email to <a>box_library@gmail.com</a>, as below</p>--%>
-<%--                <p>First Name: <br>--%>
-<%--                    Last Name:<br> birthDay<br> phoneNumber<br> iD_Number<br> andress<br> password</p>--%>
-<%--                <p>And then waiting for our response</p>--%>
-<%--            </div>--%>
-<%--            <div class="modal-footer">--%>
-<%--                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<!-- END MODAL SIGN UP-->
+
 <div class="container intros" id="about">
     <div class="row row1">
 <section class="body">
@@ -237,62 +208,7 @@
         </div>
     </div>
 </div>
-<%--<div class="container intros" id="about">--%>
-<%--    <div class="row row1">--%>
-<%--        <div class="col-xs-12 col-sm-6">--%>
-<%--            <hr style="float:left; width:20em; border-top: 0.1em gray solid">--%>
-<%--            <div style="clear: both;"></div>--%>
-<%--            <h1>About Us</h1>--%>
-<%--            <div class="image_group2">--%>
-<%--                <div class ="image_avatar">--%>
-<%--                    <h4>Phạm Hồng Quân</h4>--%>
-<%--                    <img id="anh" src="images/avatar/quan.jpg">--%>
-<%--                </div>--%>
-<%--                <div class ="image_avatar">--%>
-<%--                    <h4>Trương Huy Hoàng</h4>--%>
-<%--                    <img id="anh1" src="images/avatar/hoang.jpg">--%>
-<%--                </div>--%>
-<%--                <div class ="image_avatar">--%>
-<%--                    <h4>Dương Văn Hiếu</h4>--%>
-<%--                    <img id="anh2" src="images/avatar/hieu.jpg">--%>
-<%--                </div>--%>
-<%--                <div class ="image_avatar">--%>
-<%--                    <h4>Phạm Huy Trung</h4>--%>
-<%--                    <img id="anh3" src="images/avatar/trung.jpg">--%>
-<%--                </div>--%>
-<%--            </div>--%>
 
-
-<%--            <a href="" data-toggle="modal" data-target="#book_modal"><b>SEE BOSS: </b></a>--%>
-
-<%--            <div id="book_modal" class="modal fade" role="dialog">--%>
-<%--                <div class="modal-dialog">--%>
-<%--                    <div class="modal-content">--%>
-<%--                        <div class="modal-header">--%>
-<%--                            <button type="button" class="close" data-dismiss="modal">&times;</button>--%>
-<%--                            <h4 class="modal-title">GOOD BOOK to You</h4>--%>
-<%--                        </div>--%>
-<%--                        <div class="modal-body">--%>
-<%--                            <div class="img-wrap">--%>
-<%--                                <img src="${pageContext.servletContext.contextPath}https://scontent.fhan2-1.fna.fbcdn.net/v/t39.30808-1/305310204_1443918139406057_4754979646331603559_n.jpg?stp=dst-jpg_p200x200&_nc_cat=102&ccb=1-7&_nc_sid=7206a8&_nc_ohc=1ppVQJ96q8kAX-xfdA4&_nc_oc=AQmuzg_uNGjy51uxG2CjUMXduyu6aY1nBNsg8pNSWS9fMzZAD4VWo5H3hyTUAKGUypA&_nc_ht=scontent.fhan2-1.fna&oh=00_AT-o7soIGJxp5NOv01Y8VH0vsVmEXCMOnakPSduclh-isw&oe=634633FD"--%>
-<%--                                     alt="brief-history-of-time" srcset="">--%>
-<%--                                <p></p>--%>
-<%--                            </div>--%>
-<%--                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.--%>
-<%--                                Nostrum accusamus nulla praesentium a velit,--%>
-<%--                                nesciunt laudantium excepturi quae assumenda natus dolorem ad?</p>--%>
-<%--                        </div>--%>
-<%--                        <div class="modal-footer">--%>
-<%--                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--            <!-- END MODAL -->--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<%--</div>--%>
 
 <div class="container intros">
     <div class="row row2">
