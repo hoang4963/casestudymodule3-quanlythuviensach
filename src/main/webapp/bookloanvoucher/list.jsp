@@ -49,10 +49,11 @@
     <h2>
         <a href="/BookLoanVoucherServlet?action=create">Add New Book Loan Voucher</a>
     </h2>
+    <h2>List of Book Loan Voucher</h2>
 </center>
 <div align="center">
     <table border="1" cellpadding="5" class = "table">
-        <caption><h2>List of Book Loan Voucher</h2></caption>
+
         <tr>
             <form action="/BookLoanVoucherServlet" method="get">
                 <input name="searchByBookLoanVouchers"  type="text" placeholder="Type Book Loan Voucher Id">

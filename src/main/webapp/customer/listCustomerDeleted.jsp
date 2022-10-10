@@ -48,10 +48,11 @@
   <h2>
     <a href="customers?action=customers">List All Customers</a>
   </h2>
+  <h2>List of Customers Deleted</h2>
 </center>
 <div align="center">
   <table border="1" cellpadding="5" class = "table">
-    <caption><h2>List of Customers Deleted</h2></caption>
+
     <tr>
       <th>CustomerId</th>
       <th>Name</th>

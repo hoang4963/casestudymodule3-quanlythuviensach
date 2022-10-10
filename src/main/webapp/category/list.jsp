@@ -53,6 +53,7 @@
     </div>
 </nav>
 <h1>Book Management</h1>
+<h2>List of Categories</h2>
 <form class="form-group search-form" action="/categories" method="post">
     <input name="search" class="form-control search-input" type="text" placeholder="Type something to search">
     <input type="hidden" name="action" value="searchBy">
@@ -61,7 +62,7 @@
        class="btn btn-primary search-btn">Add</a>
 </form>
 <div align="center">
-    <caption><h2>List of Categories</h2></caption>
+
     <table border="1" cellpadding="5" class="table">
         <tr style="background-color: #d2d0d0">
             <th>Category ID</th>

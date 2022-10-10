@@ -49,10 +49,11 @@
     <h2>
         <a href="BorrowerBookServlet?action=create">Add a new BorrowerBook</a>
     </h2>
+    <h2>List of BorrowerBook</h2>
 </center>
 <div align="center">
     <table border="1" cellpadding="5" class = "table">
-        <caption><h2>List of BorrowerBook</h2></caption>
+
         <tr>
             <th>BorrowerBookId</th>
             <th>LoanVoucherId</th>

@@ -6,8 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%--<%--%>
@@ -21,9 +20,9 @@
 <%--        response.sendRedirect("login.jsp");--%>
 <%--    }--%>
 <%--%>--%>
-=======
+
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
->>>>>>> 4c0efc46412a4ec715b6f8de03c187379d08472f
+
 
 <html lang="en">
 
@@ -54,7 +53,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top menu" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <a class="navbar-brand" style="margin: 0; float: none;" href="#"><img src="images/Screenshot (98).png" id="logo"></a>
+        <a class="navbar-brand" style="margin: 0; float: none;" href="#"><img src="images/logotron.png" id="logo"></a>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">

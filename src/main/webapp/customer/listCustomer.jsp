@@ -51,10 +51,11 @@
     <h2>
         <a href="/customers?action=listDeleted">List Customers Deleted</a>
     </h2>
+    <h2>List of Customers</h2>
 </center>
 <div align="center">
     <table border="1" cellpadding="5" class = "table">
-        <caption><h2>List of Customers</h2></caption>
+
         <tr>
             <form action="/customers" method="get">
                 <input name="searchByName"  type="text" placeholder="Type something to search">
