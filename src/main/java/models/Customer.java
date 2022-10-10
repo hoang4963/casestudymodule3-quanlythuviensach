@@ -12,6 +12,12 @@ public class Customer {
     protected String customerAvatar;
     protected String customerRoleId;
 
+    public Customer(String customerName, String customerEmail, String customerPassword) {
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.customerPassword = customerPassword;
+    }
+
     protected String customerPassword;
 
     public Customer() {

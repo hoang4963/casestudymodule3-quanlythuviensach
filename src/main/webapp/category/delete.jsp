@@ -29,8 +29,9 @@
 <body>
 <h1>Delete Category Sucess!!!</h1>
 <p>
-    <a href="/categories" class="btn btn-danger btn-lg">Back to customer list</a>
+    <a href="/categories" class="btn btn-danger btn-lg" >Back to customer list</a>
 </p>
+
 </body>
 </html>
 
