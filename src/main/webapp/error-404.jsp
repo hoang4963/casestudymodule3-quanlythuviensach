@@ -26,7 +26,7 @@
         <br>
         <div class="shadow move"></div>
         <div class="message"><h1 class="alert">Error!</h1><p style="color: white">oh no, something went wrong.</div>
-        <button onclick="window.location.href='/home.jsp'" class="button-box"><h1 class="red">Back Menu</h1></button>
+        <button onclick="window.location.href='/index.jsp'" class="button-box"><h1 class="red">Back Menu</h1></button>
 
     </div>
 </div>

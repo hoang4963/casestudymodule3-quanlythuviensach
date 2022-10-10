@@ -44,10 +44,10 @@ public class ChangePassServlet extends HttpServlet {
             int i = ChangePassDAO.resetPass(customer,sql);
             if (i!= 0 ) {
                 request.setAttribute("msg", "Thay đổi mật khẩu thành công");
-                getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
+                getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
             }else {
                 request.setAttribute("msg", "Không thay đổi mật khẩu được");
-                getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
+                getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
             }
         }
         //        String oldPass = request.getParameter("oldPass");
@@ -80,10 +80,10 @@ public class ChangePassServlet extends HttpServlet {
 //                    int i = ChangePassDAO.resetPass(customer,sql);
 //                    if (i!= 0 ) {
 //                        request.setAttribute("msg", "Thay đổi mật khẩu thành công");
-//                        getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
+//                        getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 //                    }else {
 //                        request.setAttribute("msg", "Không thay đổi mật khẩu được");
-//                        getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
+//                        getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
 //                    }
 //                }
 //            }
