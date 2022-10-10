@@ -24,14 +24,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <link href='text/css' rel='stylesheet'>
-    <link type="text/css" rel="stylesheet" href="${pageContext.servletContext.contextPath}css/page.css">
+
 
     <script type='text/javascript' src=''></script>
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bookcss.css">
-</head>
+    <style>
+    #logo {
+    margin: 0;
+    float: none;
+    width: 50px;
+    height: 50px;
+    }
+    body,table {
+        text-align: center;
+    }
+    table{
+        margin-left: auto;
+        margin-right: auto ;
+    }
+    </style>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top menu" role="navigation">
     <div class="container-fluid">
@@ -51,7 +64,6 @@
         <div class="collapse navbar-collapse" >
             <ul class="navbar-nav me-auto, comment" style="font-size: 14px">
                 <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
                 <li class="nav-item" style="padding-top: 14px"><a href="#" ></a><%=session.getAttribute("name")%></li>
             </ul>
@@ -59,15 +71,26 @@
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
+
 <h1>Book Management</h1>
-<h2>List of Categories</h2>
+<span>
 <form class="form-group search-form" action="/categories" method="post">
-    <input name="search" class="form-control search-input" type="text" placeholder="Type something to search">
-    <input type="hidden" name="action" value="searchBy">
-    <button type="submit" class="btn btn-primary search-btn">Seacrh</button>
-    <a href="/categories?action=create"
-       class="btn btn-primary search-btn">Add</a>
+    <table>
+        <tr>
+            <td><input name="search" class="form-control me-2" type="text" placeholder="Type something to search">
+            <input type="hidden" name="action" value="searchBy"></td>
+            <td>
+            <button type="submit" class="btn btn-primary search-btn btn-lg">Seacrh</button>
+            </td>
+        </tr>
+    </table>
 </form>
+    <a href="/categories?action=create"
+       class="btn btn-primary search-btn btn-lg">Add</a>
+</span>
+<h2>List of Categories</h2>
+
+
 <div align="center">
 
     <table border="1" cellpadding="5" class="table">
@@ -78,7 +101,7 @@
         </tr>
         <c:forEach var="category" items="${requestScope['listCategories']}">
             <tr>
-                <td><a href="/categories?action=view&id=${category.getId()}" class="btn">${category.getBookCategoryId()}</a></td>
+                <td><a href="/categories?action=view&id=${category.getId()}" class="btn" >${category.getBookCategoryId()}</a></td>
                 <td><c:out value="${category.getBookCategoryName()}"/></td>
                 <td>
                     <a href="/categories?action=edit&id=${category.getId()}" class="btn btn-primary">Edit</a>

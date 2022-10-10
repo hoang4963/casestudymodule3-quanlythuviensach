@@ -28,9 +28,41 @@
             color: red;
 
         }
+        #logo {
+            margin: 0;
+            float: none;
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top menu" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand" style="margin: 0; float: none;" href="#"><img src="images/Screenshot (98).png" id="logo"></a>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li>
+                    <a class="navbar-brand , comment" href="role/librarian.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" >
+            <ul class="navbar-nav me-auto, comment" style="font-size: 14px">
+                <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
+                <li class="nav-item" style="padding-top: 14px"><a href="#" ></a><%=session.getAttribute("name")%></li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div>
+</nav>
 <h1>Book Information</h1>
 <p>
     <a href="/books" class="btn btn-primary">Back to Book list</a>

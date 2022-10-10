@@ -36,6 +36,8 @@
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
     <script type='text/javascript'
             src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/page.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top menu" role="navigation">
@@ -64,6 +66,25 @@
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
+<div class="container">
+    <div class="left">
+        <div >
+            <ul class="leftSideTop">
+
+                <li>
+                    <button class="leftSideTopBtn" onclick="location.href='books';"><i class="fa fa-book"></i>&emsp;Book</button>
+                </li>
+
+            </ul>
+        </div>
+
+
+    </div>
+    <div class="main">
+        <img src="images/coworking-modal/coworking0.jpg" alt="">
+    </div>
+
+</div>
 <%--Body Khách hàng--%>
 <div>
     <a href="books">Sách</a>
