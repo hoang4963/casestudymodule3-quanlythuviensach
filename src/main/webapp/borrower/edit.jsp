@@ -49,17 +49,16 @@
 <center>
     <h1>Borrower Management</h1>
     <h2>
-        <a href="borrowers?action=borrowers">List All Borrowers</a>
+        <a href="borrowers?action=borrowers" class="btn btn-primary">List All Borrowers</a>
     </h2>
+    <h2>
+    Edit Borrower
+</h2>
 </center>
 <div align="center">
     <form method="post">
-        <table border="1" cellpadding="5" class = "table">
-            <caption>
-                <h2>
-                    Edit Borrower
-                </h2>
-            </caption>
+        <table border="1" cellpadding="5" class = "table-bordered">
+
             <c:if test="${borrower != null}">
                 <input type="hidden" name="id" value="<c:out value='${borrower.getId()}' />"/>
             </c:if>
@@ -108,7 +107,7 @@
             <tr>
 
                 <td colspan="2" align="center">
-                    <input type="submit" value="Save"/>
+                    <input type="submit" value="Save" class="btn btn-info btn-lg"/>
                 </td>
             </tr>
         </table>

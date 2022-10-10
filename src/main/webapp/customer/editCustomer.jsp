@@ -117,9 +117,14 @@
             <tr>
                 <th>Customer roleid:</th>
                 <td>
-                    <input type="text" name="roleId" size="45"
-                           value="<c:out value='${customer.getCustomerRoleId()}' />"
-                    />
+                    <select name="roleId" id="roleId">
+                        <option value=" "> </option>
+                    <c:forEach var="role" items="${listRoles}">
+
+                            <option value="${role.getRoleid()}">${role.getRoleName()}</option>
+
+                    </c:forEach>
+                    </select>
                 </td>
             </tr>
             <tr>

@@ -99,12 +99,15 @@
                 </td>
             </tr>
             <th>Role :</th>
-            <td><select name="role_Id" id="role_Id" class="form-control form-control-lg"
-                        style="height: 70px;width: 400px;border-radius: 50px;border: 1px solid grey;">
-                <option value="R01">Admin</option>
-                <option value="R02">Thủ thư</option>
-                <option value="R03">Khách hàng</option>
-            </select>
+            <td>
+                <select name="role_Id" id="role_Id">
+                    <option value=" "> </option>
+                    <c:forEach var="role" items="${listRoles}">
+
+                        <option value="${role.getRoleid()}">${role.getRoleName()}</option>
+
+                    </c:forEach>
+                </select>
             </td>
             <tr>
                 <td colspan="2" align="center">

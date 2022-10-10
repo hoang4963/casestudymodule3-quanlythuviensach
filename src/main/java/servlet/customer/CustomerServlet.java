@@ -1,7 +1,9 @@
 package servlet.customer;
 
 import DAO.customer.CustomerDAO;
+import DAO.role.RoleDAO;
 import models.Customer;
+import models.Role;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,9 +19,11 @@ import java.util.List;
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customers")
 public class CustomerServlet extends HttpServlet {
     private CustomerDAO customerDAO;
+    private RoleDAO roleDAO;
 
     public void init() {
         customerDAO = new CustomerDAO();
+        roleDAO = new RoleDAO();
     }
 
     @Override
@@ -91,6 +95,8 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) {
+        List<Role> role = roleDAO.selectAllRoles();
+        request.setAttribute("listRoles",role);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/createCustomer.jsp");
         try {
             dispatcher.forward(request, response);
@@ -103,8 +109,11 @@ public class CustomerServlet extends HttpServlet {
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer existingCustomer = customerDAO.selectCustomer(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/editCustomer.jsp");
+        List<Role> role = roleDAO.selectAllRoles();
         request.setAttribute("customer", existingCustomer);
+        request.setAttribute("listRoles",role);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/editCustomer.jsp");
+
         dispatcher.forward(request, response);
 
     }
@@ -143,6 +152,7 @@ public class CustomerServlet extends HttpServlet {
     private void insertCustomer(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         Customer newCustomer;
+
         String customerId = request.getParameter("CustomerId");
         String name = request.getParameter("name");
         String email = request.getParameter("email");
