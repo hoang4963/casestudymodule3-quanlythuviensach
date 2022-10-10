@@ -51,6 +51,15 @@
         </div>
     </div>
 </nav>
+<%--body--%>
+<div>
+    <a href="/customer/listCustomer.jsp">Khách hàng</a>
+    <a href="/book/list.jsp">Sách</a>
+    <a href="/borrower/list.jsp">Thông tin người thuê sách</a>
+    <a href="/borrowerbook/list.jsp">Thông tin sách</a>
+    <a href="/bookloanvoucher/list.jsp">Phiếu thuê</a>
+    <a href="/category/list.jsp">Danh mục sách</a>
+</div>
 
 <h3>Trang admin</h3>
 

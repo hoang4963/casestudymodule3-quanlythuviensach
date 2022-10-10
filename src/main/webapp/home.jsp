@@ -6,34 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-    if (session.getAttribute("name") == null) {
-        response.sendRedirect("login.jsp");
-    }
-%>
-
-=======
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
-<<<<<<< HEAD
-<%--<%--%>
-<%--    if (session.getAttribute("name") == null) {--%>
-<%--        response.sendRedirect("user/login.jsp");--%>
-<%--    }--%>
-<%--%>--%>
-=======
-<%--<%--%>
-<%--    if (session.getAttribute("name") == null) {--%>
-<%--        response.sendRedirect("login.jsp");--%>
-<%--    }--%>
-<%--%>--%>
->>>>>>> hieu
->>>>>>> hoang
-=======
 
->>>>>>> hieu
 <html lang="en">
 
 <head>
@@ -79,8 +53,9 @@
             <ul class="navbar-nav me-auto, comment" >
                 <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/login.html">Log In</a></li>
-                <%--                <li>--%>
+                <li class="nav-item"><a class="nav-link" href="${pageContext.servletContext.contextPath}/user/login.jsp">Log In</a></li>
+
+            <%--                <li>--%>
                 <%--                    <a data-toggle="modal" data-target="#signup">Sign Up</a>--%>
                 <%--                </li>--%>
             </ul>
