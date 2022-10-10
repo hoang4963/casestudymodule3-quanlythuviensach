@@ -124,51 +124,19 @@ public class CustomerServlet extends HttpServlet {
     private void insertCustomer(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         Customer newCustomer;
+        String customerId = request.getParameter("CustomerId");
         String name = request.getParameter("name");
-        String customerId = request.getParameter("customerId");
         String email = request.getParameter("email");
-        String role_Id = request.getParameter("role_Id");
         String password = request.getParameter("password");
-        newCustomer = new Customer(customerId, name, email, role_Id, password);
+        String role_Id = request.getParameter("role_Id");
+        newCustomer = new Customer(customerId, name, email, password, role_Id);
 
         customerDAO.insertCustomer(newCustomer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/createCustomer.jsp");
         request.setAttribute("status", "success");
 
         dispatcher.forward(request, response);
-//        String name = request.getParameter("name");
-//        String customerid = request.getParameter("CustomerId");
-//        String email = request.getParameter("email");
-//        String password = request.getParameter("password");
-//        String roleid = request.getParameter("roleId");
-//        RequestDispatcher dispatcher = null;
-//        Connection con = null;
-//        try {
-//            con = ConnectionDB.getConnection();
-//            PreparedStatement pst = con.prepareStatement("insert * from `quanlythuviensach`.`customer`(customerId,name,email,password,role_id) values (?,?,?,?,?)");
-//            pst.setString(1, customerid);
-//            pst.setString(2, name);
-//            pst.setString(3, email);
-//            pst.setString(4, password);
-//            pst.setString(5, roleid);
-//            int rowCount = pst.executeUpdate();
-//            dispatcher = request.getRequestDispatcher("customer/createCustomer.jsp");
-//            if (rowCount > 0) {
-//                request.setAttribute("status", "success");
-//            } else {
-//                request.setAttribute("status", "failed");
-//            }
-//            dispatcher.forward(request,response);
-//        }catch (Exception e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                con.close();
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//
+
     }
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response)

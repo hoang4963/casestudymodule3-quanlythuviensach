@@ -44,7 +44,7 @@
                 </td>
             </tr>
             <tr>
-                <th>Role Name:</th>
+                <th> Name:</th>
                 <td>
                     <input type="text" name="name" id="name" size="45" placeholder="Name"
                            title="Please enter your First Name"/>
