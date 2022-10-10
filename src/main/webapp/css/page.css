@@ -5,8 +5,9 @@
     height: 50px;
 }
 
-body {
+body, table {
     background-color: #f5c8ce;
+    margin: auto;
 }
 img {
     width: 200px;

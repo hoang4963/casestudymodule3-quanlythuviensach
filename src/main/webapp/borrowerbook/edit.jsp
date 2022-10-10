@@ -49,17 +49,16 @@
 <center>
     <h1>Borrower Book Management</h1>
     <h2>
-        <a href="BorrowerBookServlet?action=list">List BorrowerBook</a>
+        <a href="BorrowerBookServlet?action=list" class="btn btn-info btn-lg">List BorrowerBook</a>
     </h2>
+    <h2>
+    Edit Borrower Books
+</h2>
 </center>
 <div align="center">
     <form method="post">
-        <table border="1" cellpadding="5" class = "table">
-            <caption>
-                <h2>
-                    Edit Borrower Books
-                </h2>
-            </caption>
+        <table border="1" cellpadding="5" class = "table-bordered">
+
             <c:if test="${borrowerBook != null}">
                 <input type="hidden" name="id" value="<c:out value='${borrowerBook.borrowerBookId}' />"/>
             </c:if>
@@ -99,7 +98,7 @@
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" value="Save"/>
+                    <input type="submit" value="Save" class="btn btn-primary btn-lg"/>
                 </td>
             </tr>
         </table>

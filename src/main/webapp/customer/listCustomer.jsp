@@ -85,26 +85,27 @@
                 <td><c:out value="${customer.getCustomerRoleId()}"/></td>
                 <td>
                     <a href="/customers?action=edit&id=${customer.getId()}" class="btn btn-info">Edit</a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+                    <a href="/customers?action=delete&id=${customer.getId()}" type="button" class="btn btn-danger">Delete</a>
+<%--                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>--%>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
+<%--                    <!-- Modal -->--%>
+<%--                    <div class="modal fade" id="myModal" role="dialog">--%>
+<%--                        <div class="modal-dialog">--%>
 
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">ARE YOU SURE?</h4>
-                                </div>
+<%--                            <!-- Modal content-->--%>
+<%--                            <div class="modal-content">--%>
+<%--                                <div class="modal-header">--%>
+<%--                                    <h4 class="modal-title">ARE YOU SURE?</h4>--%>
+<%--                                </div>--%>
 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <a href="/customers?action=delete&id=${customer.getId()}" type="button" class="btn btn-danger">Delete</a>
-                                </div>
-                            </div>
+<%--                                <div class="modal-footer">--%>
+<%--                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
+<%--                                    <a href="/customers?action=delete&id=${customer.getId()}" type="button" class="btn btn-danger">Delete</a>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
 
-                        </div>
-                    </div>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
                 </td>
             </tr>
