@@ -12,6 +12,7 @@
     <a href="/borrowers?action=create">Add New Borrower</a>
   </h2>
 </center>
+
 <div align="center">
   <table border="1" cellpadding="5">
     <caption><h2>List of Borrowers</h2></caption>
