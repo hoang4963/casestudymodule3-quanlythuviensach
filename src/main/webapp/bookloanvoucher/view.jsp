@@ -35,33 +35,29 @@
     <fieldset>
         <table class="table">
             <tr>
-                <td>Book Loan Voucher ID: </td>
-                <td>${requestScope["bookLoanVoucher"].getId()}</td>
+                <th>Book Loan Voucher ID:</th>
+                <th>BorrowerID:</th>
+                <th>BorrowerName: </th>
+                <th>BookAmount:</th>
+                <th>LoanDate </th>
+                <th>ReturnDate: </th>
             </tr>
+            <c:forEach var="borrower" items="${borrowers}">
             <tr>
-                <td>BorrowerID: </td>
-                <td>${requestScope["bookLoanVoucher"].getBorrowerId()}</td>
+
+                <td>${borrower.getLoanVoucherId()}</td>
+                <td>${borrower.getBorrowerId()}</td>
+                <td>${borrower.getBorrowerName()}</td>
+                <td>${borrower.getBookName()}</td>
+                <td>${borrower.getBookAmount()}</td>
+                <td>${borrower.getLoanDate()}</td>
+                <td>${borrower.getReturnDate()}</td>
+
+                <td><a href="/BookLoanVoucherServlet?action=edit&id=${bookLoanVoucher.getId()}" class="btn btn-primary">Edit</a>
+                <input type="submit" value="Delete" class="btn btn-danger"></td>
+
             </tr>
-            <tr>
-                <td>BookAmount: </td>
-                <td>${requestScope["bookLoanVoucher"].getBorrowerName()}</td>
-            </tr>
-            <tr>
-                <td>LoanDate </td>
-                <td>${requestScope["listBorrowerBook"].getLoanDate()}</td>
-            </tr>
-            <tr>
-                <td>ReturnDate: </td>
-                <td>${requestScope["listBorrowerBook"].getReturnDate()}</td>
-            </tr>
-            <tr>
-                <td>Book ID: </td>
-                <td>${requestScope["listBorrowerBook"].getBookId()}</td>
-            </tr>
-            <tr>
-                <td><a href="/BookLoanVoucherServlet?action=edit&id=${bookLoanVoucher.getId()}" class="btn btn-primary">Edit</a></td>
-                <td><input type="submit" value="Delete" class="btn btn-danger"></td>
-            </tr>
+            </c:forEach>
         </table>
     </fieldset>
 </form>

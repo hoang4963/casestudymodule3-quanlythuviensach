@@ -4,6 +4,7 @@ import connection.ConnectionDB;
 import models.Book;
 import models.BookLoanVoucher;
 import models.Borrower;
+import models.BorrowerInfo;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,7 +18,8 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
     private static final String SELECT_ALL_BOOK_LOAN_VOUCHER = "select * from bookloanvoucher";
     private static final String DELETE_BOOK_LOAN_VOUCHER_SQL = "delete from bookloanvoucher where id = ?";
     private static final String UPDATE_BOOK_LOAN_VOUCHER_SQL = "update bookloanvoucher set loanvoucherId =?, status = ?, borrower_id = ?, note = ?  where id = ?";
-    private static final String SELECT_BY_BOOK_LOAN_VOUCHER_ID = "select * from bookloanvoucher where loanvoucherId like ?;";
+    private static final String SELECT_BY_BOOK_LOAN_VOUCHER_ID = "select * from bookloanvoucher where loanvoucherId like ?";
+    private static final String SELECT_BORROWER_INFO = "select * from borrower_info where borrower_id = ?";
     public BookLoanVoucherDAO() {
     }
 
@@ -129,5 +131,28 @@ public class BookLoanVoucherDAO implements IBookLoanVoucherDAO {
             System.out.println(e.getMessage());
         }
         return bookLoanVoucher;
+    }
+
+    public List<BorrowerInfo> selectBorrowerInfo(String borrowers) {
+        List<BorrowerInfo> borrowersInfo = new ArrayList<>();
+        try(Connection connection = ConnectionDB.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BORROWER_INFO)){
+            System.out.println(preparedStatement);
+            preparedStatement.setString(1,  borrowers);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                String loanVoucherId = rs.getString("loanvoucherId");
+                String borrowerId = rs.getString("borrower_id");
+                String borrowerName = rs.getString("borrowerName");
+                String bookName = rs.getString("bookName");
+                int bookAmount = rs.getInt("bookamount");
+                Date loanDate = rs.getDate("loandate");
+                Date returnDate = rs.getDate("returndate");
+                borrowersInfo.add(new BorrowerInfo(loanVoucherId,borrowerId, borrowerName, bookName, bookAmount,loanDate, returnDate));
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return borrowersInfo;
     }
 }

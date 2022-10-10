@@ -26,7 +26,7 @@
             <tr>
                 <td><c:out value="${bookLoanVoucher.getBookLoanVoucherId()}"/></td>
                 <td><c:out value="${bookLoanVoucher.getBookLoanVoucherStatus()}"/></td>
-                <td><a href="/BookLoanVoucherServlet?action=view&id=${bookLoanVoucher.getId()}" class="btn"><c:out value="${bookLoanVoucher.getBorrowerID()}"/> </a>
+                <td><a href="/BookLoanVoucherServlet?action=view&borrowerID=${bookLoanVoucher.getBorrowerID()}" class="btn"  ><c:out value="${bookLoanVoucher.getBorrowerID()}"/> </a>
                     </td>
                 <td><c:out value="${bookLoanVoucher.getBookAmount()}"/></td>
                 <td><c:out value="${bookLoanVoucher.getBookLoanVoucherNote()}"/></td>
