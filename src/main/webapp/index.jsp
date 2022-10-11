@@ -121,7 +121,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="testimonial-block_content">
-                                                <p>Say :</p>
+                                                <p>Sự khác biệt giữa người thành công và kẻ thất bại không phải là ở sức mạnh, kiến thức hay sự hiểu biết mà chính là ở ý chí.
+                                                    Hãy làm những việc bình thường bằng lòng si mê phi thường.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +144,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="testimonial-block_content">
-                                                <p>.......</p>
+                                                <p>Bước đến nhà em, bóng xế tà.Đứng chờ năm phút bố em ra.Lơ thơ phía trước vài con chó.Lác đác đằng sau chổi lông gà.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +166,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="testimonial-block_content">
-                                                <p>.......</p>
+                                                <p>Một cuốn sách hay cho ta một điều tốt, một người bạn tốt cho ta một điều hay</p>
                                             </div>
                                         </div>
                                     </div>

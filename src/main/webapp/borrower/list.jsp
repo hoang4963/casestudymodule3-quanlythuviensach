@@ -82,7 +82,7 @@
         <td><c:out value="${borrower.getCustomerId()}"/></td>
         <td>
           <a href="/borrowers?action=edit&id=${borrower.getId()}" class="btn btn-info">Edit</a>
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+
           <a href="/borrowers?action=delete&id=${borrower.getId()}" type="button" class="btn btn-danger">Delete</a>
           <!-- Modal -->
         </td>

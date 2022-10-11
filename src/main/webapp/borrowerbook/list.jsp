@@ -77,7 +77,6 @@
                 <td><c:out value="${borrowerBook.getReturnDate()}"/></td>
                 <td>
                     <a href="/BorrowerBookServlet?action=edit&id=${borrowerBook.getBorrowerBookId()}" class="btn btn-info">Edit</a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
                     <a href="/BorrowerBookServlet?action=delete&id=${borrowerBook.getBorrowerBookId()}" type="button" class="btn btn-danger">Delete</a>
                     <!-- Modal -->
 
