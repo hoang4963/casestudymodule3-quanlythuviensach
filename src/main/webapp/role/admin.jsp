@@ -63,6 +63,8 @@
                 <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="/user/changePassword.jsp">changPassword</a></li>
+
                 <li class="nav-item" style="padding-top: 14px"><a href="#"></a><%=session.getAttribute("name")%>
                 </li>
             </ul>

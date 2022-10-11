@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     if (session.getAttribute("name") == null) {
@@ -44,24 +43,29 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top menu" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <a class="navbar-brand" style="margin: 0; float: none;" href="#"><img src="images/Screenshot (98).png" id="logo"></a>
+        <a class="navbar-brand" style="margin: 0; float: none;" href="#"><img src="images/Screenshot (98).png"
+                                                                              id="logo"></a>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a class="navbar-brand , comment" href="/role/librarian.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
+                    <a class="navbar-brand , comment" href="/role/librarian.jsp" style="font-style: oblique">LIBRARIES
+                        OF GROUP II</a>
                 </li>
             </ul>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" >
+        <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto, comment" style="font-size: 14px">
-                <li class="nav-item" ><a class="nav-link" href="#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="/user/login.jsp" class="btn btn-info">Logout</a></li>
-                <li class="nav-item" style="padding-top: 14px"><a href="#" ></a><%=session.getAttribute("name")%></li>
+                <li class="nav-item"><a class="nav-link" href="/user/changePassword.jsp">changPassword</a></li>
+
+                <li class="nav-item" style="padding-top: 14px"><a href="#"></a><%=session.getAttribute("name")%>
+                </li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
@@ -69,23 +73,29 @@
 </nav>
 <div class="container">
     <div class="left">
-            <ul class="leftSideTop">
+        <ul class="leftSideTop">
 
 
-                <li>
-                    <button class="leftSideTopBtn" onclick="location.href='books';"><i class="fa fa-book"></i>&emsp;Book</button>
-                </li>
-                <li>
-                    <button class="leftSideTopBtn" onclick="location.href='borrowers';"><i class="fa fa-address-card"></i>&emsp;Borrower</button>
-                </li>
-                <li>
-                    <button class="leftSideTopBtn" onclick="location.href='BorrowerBookServlet';"><i class="fa fa-address-book-o"></i>&emsp;Book Borrower</button>
-                </li>
-                <li>
-                    <button class="leftSideTopBtn" onclick="location.href='BookLoanVoucherServlet';"><i class="fa fa-ticket"></i>&emsp;Loan voucher</button>
-                </li>
+            <li>
+                <button class="leftSideTopBtn" onclick="location.href='books';"><i class="fa fa-book"></i>&emsp;Book
+                </button>
+            </li>
+            <li>
+                <button class="leftSideTopBtn" onclick="location.href='borrowers';"><i class="fa fa-address-card"></i>&emsp;Borrower
+                </button>
+            </li>
+            <li>
+                <button class="leftSideTopBtn" onclick="location.href='BorrowerBookServlet';"><i
+                        class="fa fa-address-book-o"></i>&emsp;Book Borrower
+                </button>
+            </li>
+            <li>
+                <button class="leftSideTopBtn" onclick="location.href='BookLoanVoucherServlet';"><i
+                        class="fa fa-ticket"></i>&emsp;Loan voucher
+                </button>
+            </li>
 
-            </ul>
+        </ul>
     </div>
     <div class="main">
         <img src="images/book-modal/pace-coworking.jpeg" alt="">
