@@ -50,7 +50,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a class="navbar-brand , comment" href="#" style="font-style: oblique">LIBRARIES OF GROUP II</a>
+                    <a class="navbar-brand , comment" href="index.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
                 </li>
             </ul>
         </div>
@@ -71,7 +71,7 @@
 <center>
     <h1>Role Management</h1>
     <h2>
-        <a href="/roles?action=create">Add New Role</a>
+        <a href="/roles?action=create" class="btn btn-info btn-lg">Add New Role</a>
     </h2>
     <caption><h2>List of Roles</h2></caption>
 

@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a class="navbar-brand , comment" href="role/customer.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
+                    <a class="navbar-brand , comment" href="index.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
                 </li>
             </ul>
         </div>
@@ -118,7 +118,7 @@
     </table>
 </div>
 <h2>
-    <a href="/customers?action=listDeleted">List Customers Deleted</a>
+    <a href="/customers?action=listDeleted" class="btn btn-info btn-lg">List Customers Deleted</a>
 </h2>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>

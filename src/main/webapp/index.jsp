@@ -67,19 +67,17 @@
 
 <div class="container-fluid banner" id="">
     <div class="row row-of-banner">
-        <h1><b> Libraries Group TWO </b></h1>
-        <h3>"Một cuốn sách hay trên giá sách là một người bạn dù quay lưng lại nhưng vẫn là bạn tốt" </h3>
+        <h1><b style="font-size: 50px"> LIBRARIAN GROUP II </b></h1>
+        <h2>"Một cuốn sách hay trên giá sách là một người bạn dù quay lưng lại nhưng vẫn là bạn tốt" </h2>
     </div>
 </div>
-
-
 
 <div class="container intros" id="about">
     <div class="row row1">
         <section class="body">
             <div class="container">
                 <h1 class="section-header"><b>Testimonial Design</b></h1>
-                <p class="text-muted text-center">What people say</p>
+                <h3><p class="text-muted text-center">What people say</p></h3>
                 <div class="testimonial-view">
                     <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">

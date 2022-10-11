@@ -30,7 +30,7 @@
       <ul class="nav navbar-nav navbar-right">
 
         <li>
-          <a class="navbar-brand , comment" href="role/admin.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
+          <a class="navbar-brand , comment" href="index.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
         </li>
       </ul>
     </div>
@@ -50,7 +50,7 @@
 <center>
   <h1>Borrower Management</h1>
   <h2>
-    <a href="/borrowers?action=create">Add New Borrower</a>
+    <a href="/borrowers?action=create" class="btn btn-info btn-lg">Add New Borrower</a>
   </h2>
 </center>
 <h2>List of Borrowers</h2>

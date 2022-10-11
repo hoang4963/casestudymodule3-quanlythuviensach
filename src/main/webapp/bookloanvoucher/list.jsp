@@ -34,7 +34,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a class="navbar-brand , comment" href="role/librarian.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
+                    <a class="navbar-brand , comment" href="index.jsp" style="font-style: oblique">LIBRARIES OF GROUP II</a>
                 </li>
             </ul>
         </div>
@@ -54,7 +54,7 @@
 <center>
     <h1>Book Loan Voucher Management</h1>
     <h2>
-        <a href="/BookLoanVoucherServlet?action=create">Add New Book Loan Voucher</a>
+        <a href="/BookLoanVoucherServlet?action=create" class="btn btn-info btn-lg">Add New Book Loan Voucher</a>
     </h2>
     <h2>List of Book Loan Voucher</h2>
 </center>
