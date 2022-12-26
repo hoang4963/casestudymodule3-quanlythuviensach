@@ -70,7 +70,7 @@
             </form>
         </tr>
         <tr>
-            <th>CustomerId</th>
+            <th>#</th>
             <th>Name</th>
             <th>Birthday</th>
             <th>Email</th>

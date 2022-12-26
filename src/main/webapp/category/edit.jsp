@@ -70,8 +70,8 @@
     <form method="post">
         <table border="1" cellpadding="5">
 
-            <c:if test="${category != null}">
-                <input type="hidden" name="id" value="<c:out value='${category.id}' />"/>
+            <c:if test="${student != null}">
+                <input type="hidden" name="id" value="<c:out value='${student.id}' />"/>
             </c:if>
             <tr>
                 <th>Category ID :</th>
